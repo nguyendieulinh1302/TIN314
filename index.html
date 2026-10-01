@@ -1,247 +1,247 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="utf-8">
+<html lang="vi">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SWAPDROBE – Trao đổi đồ sinh viên</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&display=swap" rel="stylesheet">
+<title>SWAPDROBE — Things Change Hands, Stories Live On</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff;--fg:#1a1a1a;--mut:#6b6b6b;--line:#e7e2e4;--soft:#f6f2f4;--pri:#CD5782;--pri2:#b3436b;--tint:#fbeaf1;--ok:#1f8f5f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151214;--fg:#f4eff2;--mut:#a99fa5;--line:#352f33;--soft:#1f1b1d;--tint:#33202a}}
-:root[data-theme="dark"]{--bg:#151214;--fg:#f4eff2;--mut:#a99fa5;--line:#352f33;--soft:#1f1b1d;--tint:#33202a}
-*,*:before,*:after{box-sizing:inherit}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.5 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif}
+:root{--washi:#F3EFE5;--sumi:#292824;--moss:#6B705C;--matcha:#85866A;--clay:#A6785D;--wood:#8A735D;--rasp:#CD5782;--card:#FBF8F1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--washi);color:var(--sumi);font:400 14px/1.6 'Noto Sans',system-ui,sans-serif;letter-spacing:.02em}
+h1,h2,h3,.serif{font-family:'Shippori Mincho',Georgia,serif;font-weight:400}
 button,input,select,textarea{font:inherit;color:inherit}
-h1,h2,h3,p{margin:0}a{color:inherit}
-:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.hd{max-width:1240px;margin:auto;display:flex;align-items:center;gap:20px;padding:10px 20px}
-.logo{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;padding:0}
-.logo b{background:var(--pri);color:#fff;width:44px;height:44px;display:grid;place-items:center;font-weight:800;font-size:11px;line-height:1;letter-spacing:.02em;text-align:center}
-.logo span{font-weight:800;font-size:19px;letter-spacing:-.01em}
-nav{display:flex;gap:4px;flex:1}
-nav button{background:none;border:0;padding:8px 12px;cursor:pointer;font-weight:500;border-bottom:2px solid transparent;position:relative}
-nav button.on{border-color:var(--pri);color:var(--pri)}
-nav i{font-style:normal;background:var(--pri);color:#fff;border-radius:9px;font-size:11px;padding:0 6px;margin-left:4px}
-.me{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:22px;padding:4px 12px 4px 4px;cursor:pointer}
-.av{width:30px;height:30px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:600}
-.tick{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;background:#1d9bf0;color:#fff;font-size:10px;vertical-align:1px}
-.strip{background:var(--tint);text-align:center;padding:8px 16px;font-size:14px}
-.strip button{background:none;border:0;color:var(--pri2);font-weight:600;text-decoration:underline;cursor:pointer}
-main{max-width:1240px;margin:auto;padding:0 20px 60px}
-.btn{background:var(--pri);color:#fff;border:0;padding:10px 18px;font-weight:600;cursor:pointer;border-radius:2px}
-.btn:hover{background:var(--pri2)}.btn.ghost{background:none;color:var(--fg);border:1px solid var(--fg)}.btn.ghost:hover{background:var(--soft)}
-.btn.sm{padding:6px 12px;font-size:13px}.btn[disabled]{opacity:.5;cursor:not-allowed}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;background:var(--soft);margin:20px 0 0;padding:48px}
-.hero h1{font-size:clamp(34px,5.4vw,66px);line-height:1.04;font-weight:800;letter-spacing:-.03em}
-.hero p{margin:16px 0 24px;max-width:46ch;color:var(--mut);font-size:17px}
-.hero .cta{display:flex;gap:10px;flex-wrap:wrap}
-.stack{position:relative;height:300px}
-.stack div{position:absolute;width:190px;height:240px;border-radius:4px;display:grid;place-items:center;font-size:76px;box-shadow:0 8px 22px rgba(0,0,0,.14);border:6px solid #fff}
-.stack div:nth-child(1){left:6%;top:30px;transform:rotate(-9deg);background:#f5d5e2}
-.stack div:nth-child(2){left:32%;top:0;transform:rotate(4deg);background:#d9e8f5}
-.stack div:nth-child(3){left:54%;top:40px;transform:rotate(12deg);background:#dff0dd}
-.how{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;border-bottom:1px solid var(--line)}
-.how div{padding:20px;border-right:1px solid var(--line)}.how div:last-child{border:0}
-.how b{display:block;margin-bottom:2px}.how span{color:var(--mut);font-size:14px}
-.tabs{display:flex;gap:6px;overflow-x:auto;padding:22px 0 0;border-bottom:1px solid var(--line)}
-.tab{background:none;border:0;padding:8px 14px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;font-weight:500}
-.tab.on{border-color:var(--pri);color:var(--pri);font-weight:600}
-.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:16px 0}
-.tools input,.tools select,.f input,.f select,.f textarea{border:1px solid var(--line);background:var(--bg);padding:9px 12px;border-radius:2px;min-width:0}
-.tools input{flex:1;min-width:180px}
-.seg{display:flex;border:1px solid var(--line)}.seg button{background:none;border:0;padding:8px 14px;cursor:pointer}.seg .on{background:var(--fg);color:var(--bg)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px 16px}
-.card .art{position:relative;aspect-ratio:4/5;display:grid;place-items:center;font-size:72px;cursor:pointer;overflow:hidden}
-.card .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cond{position:absolute;left:0;bottom:0;background:var(--fg);color:var(--bg);font-style:normal;font-size:12px;font-weight:600;padding:3px 9px}
-.cb{padding-top:10px}.cb h3{font-size:15px;font-weight:600;line-height:1.3}
-.who,.loc{font-size:13px;color:var(--mut)}
-.bar{display:flex;gap:6px;margin-top:10px;align-items:center}.bar .btn{flex:1;padding:8px 6px;font-size:13px}
-.ic{width:36px;height:36px;border:1px solid var(--line);background:var(--bg);cursor:pointer;border-radius:2px}
-.deck{max-width:400px;margin:0 auto}.deck .card .art{font-size:110px}.deck .bar .btn{font-size:14px}
-.deckn{text-align:center;color:var(--mut);font-size:13px;margin-top:10px}
-.empty{padding:50px 10px;text-align:center;color:var(--mut)}.empty .btn{margin-top:12px}
-h2.t{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:30px 0 6px}
-.sub{color:var(--mut);margin-bottom:18px}
-.f{display:grid;gap:14px;max-width:640px}.f label{display:grid;gap:5px;font-weight:500;font-size:14px}.f small{color:var(--mut);font-weight:400}
-.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ph{display:flex;gap:8px;flex-wrap:wrap}.ph .p{width:86px;height:86px;border:1px dashed var(--mut);display:grid;place-items:center;background:var(--soft);cursor:pointer;overflow:hidden;font-size:24px;color:var(--mut)}.ph img{width:100%;height:100%;object-fit:cover}
-.ol{display:grid;gap:12px;max-width:820px}
-.o{border:1px solid var(--line);padding:16px;display:grid;gap:10px}
-.o .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.mini{display:flex;align-items:center;gap:8px;background:var(--soft);padding:6px 10px;font-size:13px;border-radius:2px}.mini s{text-decoration:none;font-size:22px}
-.st{font-size:12px;font-weight:600;padding:2px 9px;border-radius:10px;background:var(--soft)}.st.a{background:var(--tint);color:var(--pri2)}.st.d{background:#dff3e8;color:var(--ok)}
-.arrow{font-size:20px;color:var(--pri)}
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;display:grid;place-items:center;padding:16px}
-.sheet{background:var(--bg);width:min(640px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:24px;position:relative;border-radius:4px}
-.sheet h3{font-size:21px;font-weight:800;margin-bottom:4px;padding-right:30px}
-.x{position:absolute;right:10px;top:8px;background:none;border:0;font-size:26px;cursor:pointer}
-.pick{display:flex;gap:10px;align-items:center;border:1px solid var(--line);padding:8px 10px;cursor:pointer;margin:6px 0}.pick:has(input:checked){border-color:var(--pri);background:var(--tint)}
-.spots{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.spots label{border:1px solid var(--line);padding:6px 12px;cursor:pointer;border-radius:18px;font-size:14px}.spots label:has(input:checked){background:var(--pri);color:#fff;border-color:var(--pri)}.spots input{display:none}
-.chat{border:1px solid var(--line);height:190px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:6px;margin:8px 0}
-.msg{max-width:80%;padding:6px 11px;background:var(--soft);border-radius:12px;font-size:14px}.msg.me{align-self:flex-end;background:var(--pri);color:#fff}
-.cs{display:flex;gap:6px}.cs input{flex:1;border:1px solid var(--line);background:var(--bg);padding:8px 10px}
-.stars button{background:none;border:0;font-size:32px;cursor:pointer;color:var(--line)}.stars .on{color:#f5a623}
-.chk{display:grid;gap:8px;margin:14px 0}.chk div{display:flex;gap:10px;align-items:center;padding:10px;background:var(--soft)}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 18px;z-index:80;border-radius:3px;max-width:90vw}
-.prof{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:26px 0}.prof .av{width:72px;height:72px;font-size:30px}
-.stats{display:flex;gap:26px;margin:6px 0 0}.stats b{font-size:22px;display:block}.stats span{font-size:13px;color:var(--mut)}
-footer{border-top:1px solid var(--line);padding:26px 20px;text-align:center;color:var(--mut);font-size:13px}
-@media(max-width:820px){.hero{grid-template-columns:1fr;padding:28px 20px}.stack{height:240px}.stack div{width:140px;height:180px;font-size:54px}.how{grid-template-columns:1fr 1fr}.how div{border-bottom:1px solid var(--line)}.hd{gap:8px;padding:8px 12px}.logo span{display:none}nav button{padding:8px 7px;font-size:13px}.me span:last-child{display:none}.me{padding:3px}.r2{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style></head><body>
-<header><div class="hd" id="hd"></div><div id="bn"></div></header>
+button{cursor:pointer;background:none;border:1px solid var(--sumi);padding:10px 20px;letter-spacing:.08em;text-transform:uppercase;font-size:12px;transition:.2s}
+button:hover{background:var(--sumi);color:var(--washi)}
+button.pri{background:var(--sumi);color:var(--washi)}button.pri:hover{background:var(--moss);border-color:var(--moss)}
+button.off{background:var(--rasp);border-color:var(--rasp);color:#fff}button.off:hover{filter:brightness(.92);background:var(--rasp)}
+button.sm{padding:6px 12px;font-size:11px}
+button.on{background:var(--moss);color:var(--washi);border-color:var(--moss)}
+input,select,textarea{width:100%;background:var(--card);border:1px solid var(--wood);padding:10px 12px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--moss)}
+label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin:14px 0 4px}
+.wrap{max-width:1200px;margin:auto;padding:0 24px}
+.top{background:var(--sumi);color:var(--washi);text-align:center;font-size:11px;letter-spacing:.15em;padding:6px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--washi);border-bottom:1px solid var(--wood)}
+.hd{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font-family:'Shippori Mincho',serif;font-size:24px;letter-spacing:.2em;cursor:pointer}
+nav{display:flex;gap:20px}nav a{cursor:pointer;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:4px 0;border-bottom:1px solid transparent}
+nav a:hover,nav a.act{border-color:var(--sumi)}
+.sb{flex:1;position:relative}.sb input{border:none;border-bottom:1px solid var(--wood);background:transparent;padding:8px 2px}
+.sres{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--wood);display:none;max-height:300px;overflow:auto}
+.sres div{padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;font-size:13px}.sres div:hover{background:var(--washi)}
+.who{font-size:12px;cursor:pointer;white-space:nowrap}
+.badge{display:inline-block;background:var(--moss);color:var(--washi);font-size:9px;letter-spacing:.1em;padding:1px 6px;text-transform:uppercase;vertical-align:middle}
+.badge.no{background:transparent;color:var(--wood);border:1px solid var(--wood)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:480px;border-bottom:1px solid var(--wood)}
+.hero .l{padding:64px 24px 64px max(24px,calc((100vw - 1200px)/2 + 24px));display:flex;flex-direction:column;justify-content:center;gap:20px}
+.hero .r{background:var(--moss);position:relative;overflow:hidden}
+.hero .r i{position:absolute;border:1px solid var(--washi);border-radius:50%;opacity:.5}
+section{padding:56px 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;border-bottom:1px solid var(--wood);padding-bottom:10px}
+.sh h2{font-size:26px}.sh a{cursor:pointer;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cat{border:1px solid var(--wood);padding:28px 12px;text-align:center;cursor:pointer;background:var(--card);transition:.2s}.cat:hover{background:var(--moss);color:var(--washi)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px 16px}
+.it{cursor:pointer}.it img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--card)}
+.it .n{margin-top:8px;font-size:14px}.it .m{font-size:12px;color:var(--wood)}
+.tag{font-size:11px;color:var(--moss);letter-spacing:.08em}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.steps div{border-top:1px solid var(--sumi);padding-top:12px}.steps b{font:400 32px 'Shippori Mincho',serif;color:var(--wood)}
+.ex{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start}
+.fl{position:sticky;top:90px;border-right:1px solid var(--wood);padding-right:20px}
+.fl h3{font-size:16px;margin:18px 0 8px}.fl .opt{padding:4px 0;cursor:pointer;color:var(--wood)}.fl .opt.on{color:var(--sumi);border-left:2px solid var(--rasp);padding-left:8px}
+.deckw{display:flex;flex-direction:column;align-items:center;gap:20px}
+.deck{position:relative;width:min(380px,100%);height:560px;touch-action:pan-y}
+.sc{position:absolute;inset:0;background:var(--card);border:1px solid var(--wood);display:flex;flex-direction:column;user-select:none;transition:transform .25s}
+.sc img{width:100%;height:340px;object-fit:cover;display:block;pointer-events:none}
+.sc .bd{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:4px}
+.sc h3{font-size:22px}.sc.b2{transform:scale(.96) translateY(14px);z-index:0}.sc.b1{z-index:1}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.acts .off{flex:1}
+.pill{display:inline-block;border:1px solid var(--wood);padding:2px 10px;font-size:11px;margin-right:4px}
+.ov{position:fixed;inset:0;background:rgba(41,40,36,.55);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
+.ov.s{display:flex}
+.md{background:var(--washi);border:1px solid var(--sumi);max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:28px}
+.md h2{font-size:24px;margin-bottom:6px}
+.pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:10px 0}
+.pick div{border:1px solid var(--wood);cursor:pointer;font-size:12px;padding-bottom:6px}.pick div.on{outline:2px solid var(--rasp)}.pick img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.pick span{padding:0 6px}
+.chips span{display:inline-block;border:1px solid var(--wood);padding:6px 12px;margin:0 6px 6px 0;cursor:pointer;font-size:13px}.chips span.on{background:var(--moss);color:var(--washi)}
+.card{border:1px solid var(--wood);background:var(--card);padding:18px;margin-bottom:14px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+.tabs{display:flex;gap:6px;margin-bottom:20px}
+.drop{border:1px dashed var(--wood);padding:20px;text-align:center;cursor:pointer;background:var(--card)}
+.prev{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}.prev img{width:70px;height:70px;object-fit:cover}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+footer{background:var(--sumi);color:var(--washi);padding:40px 0;margin-top:40px;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+#chatBtn{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--sumi);color:var(--washi);padding:14px 22px}
+#chat{position:fixed;right:20px;bottom:calc(76px + env(safe-area-inset-bottom,0px));width:340px;max-width:calc(100vw - 40px);height:480px;max-height:70vh;background:var(--washi);border:1px solid var(--sumi);z-index:40;display:none;flex-direction:column}
+#chat.s{display:flex}
+.ch{background:var(--sumi);color:var(--washi);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.ct{display:flex}.ct button{flex:1;border:none;border-bottom:1px solid var(--wood);padding:8px;font-size:11px}.ct button.on{border-bottom:2px solid var(--rasp);background:transparent;color:var(--sumi)}
+#msgs{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.m1{max-width:82%;padding:8px 12px;background:var(--card);border:1px solid var(--wood);font-size:13px}.m1.me{align-self:flex-end;background:var(--moss);color:var(--washi);border-color:var(--moss)}
+.qr{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}.qr span{border:1px solid var(--wood);font-size:11px;padding:3px 8px;cursor:pointer}
+.cin{display:flex;border-top:1px solid var(--wood)}.cin input{border:none}.cin button{border:none;border-left:1px solid var(--wood)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:30px;background:var(--sumi);color:var(--washi);padding:10px 20px;z-index:60;display:none}
+@media(max-width:820px){nav{display:none}.hero,.ex{grid-template-columns:1fr}.hero .r{min-height:200px}.fl{position:static;border:none;padding:0}.cats{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.hd{gap:12px}}
+</style>
+</head>
+<body>
+<div class="top">MIỄN PHÍ 100% — TRAO ĐỔI KHÔNG CẦN TIỀN — DÀNH RIÊNG CHO SINH VIÊN</div>
+<header><div class="wrap hd">
+<div class="logo" onclick="go('home')">SWAPDROBE</div>
+<nav><a data-v="explore" onclick="go('explore')">Khám phá</a><a data-v="upload" onclick="go('upload')">Đăng đồ</a><a data-v="manage" onclick="go('manage')">Swap của tôi</a><a data-v="about" onclick="go('about')">Về chúng tôi</a></nav>
+<div class="sb"><input id="q" placeholder="Tìm giáo trình, quạt, áo khoác..." autocomplete="off"><div class="sres" id="sres"></div></div>
+<div class="who" id="who" onclick="go('join')"></div>
+</div></header>
+
 <main id="app"></main>
-<footer>SWAPDROBE · Nền tảng trao đổi đồ dành riêng cho sinh viên · Cũ người mới ta.</footer>
-<div id="mo"></div><div id="ts"></div>
+
+<footer><div class="wrap"><div><div class="logo">SWAPDROBE</div><div>Things Change Hands, Stories Live On.</div></div><div>Trao đổi trực tiếp trong khuôn viên trường.<br>Chỉ dành cho tài khoản .edu.vn đã xác thực.</div><div>Quy tắc: hẹn nơi công cộng — kiểm tra đồ trước khi đổi — đánh giá trung thực.</div></div></footer>
+
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+<div id="toast"></div>
+<button id="chatBtn" onclick="toggleChat()">Chat</button>
+<div id="chat">
+<div class="ch"><span class="serif" id="chT">Trợ lý SWAPDROBE</span><button class="sm" style="border-color:var(--washi);color:var(--washi)" onclick="toggleChat()">Đóng</button></div>
+<div class="ct"><button id="t0" class="on" onclick="chatTab(0)">Trợ lý AI</button><button id="t1" onclick="chatTab(1)">Tin nhắn</button></div>
+<div id="msgs"></div><div class="qr" id="qr"></div>
+<div class="cin"><input id="ci" placeholder="Nhập tin nhắn..." onkeydown="if(event.key==='Enter')sendChat()"><button onclick="sendChat()">Gửi</button></div>
+</div>
+
 <script>
+const $=s=>document.querySelector(s);
 const CATS=['Sách vở/Giáo trình','Đồ điện tử','Quần áo/Phụ kiện','Đồ dùng KTX','Khác'];
-const CE={'Sách vở/Giáo trình':'📚','Đồ điện tử':'🎧','Quần áo/Phụ kiện':'👕','Đồ dùng KTX':'🌀','Khác':'🎁'};
-const CC={'Sách vở/Giáo trình':'#f5d5e2','Đồ điện tử':'#d9e8f5','Quần áo/Phụ kiện':'#fbe8c8','Đồ dùng KTX':'#dff0dd','Khác':'#e6ddf3'};
-const SCH=['ĐH Ngoại Thương','ĐH Bách Khoa','ĐH Quốc Gia','ĐH Kinh tế Quốc dân','ĐH Sư phạm','ĐH Y Hà Nội','ĐH FPT'];
-const CONDS=['Mới 100%','Mới 95%','Mới 90%','Mới 85%','Mới 80%','Cũ 70%'];
-const SPOTS=['Cổng trường','Thư viện','KTX','Quán cafe gần trường','Căng tin'];
-const mk=(id,t,cat,cond,who,school,loc,desc,want)=>({id,t,cat,cond,who,school,loc,desc,want});
-const SEED=[
-mk(1,'Giáo trình Kinh tế vi mô','Sách vở/Giáo trình','Mới 90%','Linh Trần','ĐH Bách Khoa','KTX Khu B','Bản mới nhất, có highlight nhẹ ở chương 3–5.','Quạt mini hoặc tai nghe'),
-mk(2,'Quạt tích điện để bàn','Đồ dùng KTX','Mới 95%','Minh Anh','ĐH Ngoại Thương','Cổng trường','Pin dùng được khoảng 6 tiếng, 3 tốc độ gió.','Sách tiếng Anh'),
-mk(3,'Áo khoác denim oversize','Quần áo/Phụ kiện','Mới 90%','Hà My','ĐH Kinh tế Quốc dân','Thư viện','Size M, form rộng, mặc 3–4 lần.','Hoodie hoặc túi tote'),
-mk(4,'Tai nghe Sony có dây','Đồ điện tử','Mới 85%','Đức Long','ĐH Quốc Gia','Cơ sở 1','Âm thanh tốt, jack 3.5mm, đệm tai còn mềm.','Sách IELTS'),
-mk(5,'Máy tính Casio fx-580VN X','Đồ điện tử','Mới 95%','Bảo Ngọc','ĐH Quốc Gia','Thư viện','Đã dùng 1 kỳ, còn hộp và nắp.','Đèn học'),
-mk(6,'Đèn học LED kẹp bàn','Đồ dùng KTX','Mới 90%','Quang Huy','ĐH Bách Khoa','KTX Khu A','3 mức sáng, kẹp chắc, dây dài 1.5m.','Nồi cơm mini'),
-mk(7,'Túi tote canvas in hình','Quần áo/Phụ kiện','Mới 95%','Thu Trang','ĐH Sư phạm','Cổng trường','Vải dày, có khoá kéo và túi phụ.','Áo thun basic'),
-mk(8,'Cambridge IELTS 16 + đáp án','Sách vở/Giáo trình','Mới 90%','Phương Vy','ĐH Ngoại Thương','Căng tin','Chưa viết vào sách, kèm file audio.','Bàn phím hoặc chuột'),
-mk(9,'Bàn phím cơ 87 phím','Đồ điện tử','Mới 90%','Tuấn Kiệt','ĐH FPT','Cơ sở 2','Switch đỏ, có keycap thay thế.','Loa mini'),
-mk(10,'Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Ngọc Bích','ĐH Y Hà Nội','KTX Khu C','Nấu 1–2 người, có xửng hấp.','Đèn học'),
-mk(11,'Hoodie basic màu xám','Quần áo/Phụ kiện','Mới 95%','Gia Hân','ĐH Kinh tế Quốc dân','Thư viện','Size L, nỉ dày, không xù lông.','Áo khoác nhẹ'),
-mk(12,'Bộ dụng cụ vẽ kỹ thuật','Khác','Mới 90%','Hoàng Nam','ĐH Bách Khoa','KTX Khu A','Thước, compa, bút kim đủ bộ.','Sách chuyên ngành')];
-let S={user:null,items:SEED,saved:[],offers:[],chats:{},reviews:[],n:100};
-try{const r=localStorage.getItem('swapdrobe');if(r)S=Object.assign(S,JSON.parse(r))}catch(_){}
-const save=()=>{try{localStorage.setItem('swapdrobe',JSON.stringify(S,(k,v)=>k==='imgs'?undefined:v))}catch(_){}};
-const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const ver=()=>S.user&&S.user.st==='v',isMe=n=>S.user&&n===S.user.name,item=id=>S.items.find(i=>i.id==id),TK='<span class="tick" title="Sinh viên đã xác thực">✓</span>';
-let view='home',F={cat:'',school:'',q:'',mode:'grid'},D=0,W={};
-function toast(m){$('#ts').innerHTML=`<div class="toast" role="status">${e(m)}</div>`;clearTimeout(toast.t);toast.t=setTimeout(()=>$('#ts').innerHTML='',2600)}
-function modal(h){$('#mo').innerHTML=`<div class="ov" data-a="bg"><div class="sheet" role="dialog" aria-modal="true"><button class="x" data-a="close" aria-label="Đóng">×</button>${h}</div></div>`}
-const closeM=()=>$('#mo').innerHTML='';
-document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeM()});
-function go(v){view=v;render();scrollTo(0,0)}
-function gate(){if(!S.user){authM();return 0}if(!ver()){verifyM();toast('Cần xác thực thẻ sinh viên để tiếp tục');return 0}return 1}
-const pending=()=>S.offers.filter(o=>o.to===S.user?.name&&o.status==='pending').length;
-/* ---------- header ---------- */
-function head(){
-const n=(v,t,x='')=>`<button class="${view===v?'on':''}" data-a="go" data-id="${v}">${t}${x}</button>`;
-$('#hd').innerHTML=`<button class="logo" data-a="go" data-id="home" aria-label="SWAPDROBE trang chủ"><b>SWAP<br>DROBE</b><span>SWAPDROBE</span></button>
-<nav>${n('home','Khám phá')}${n('up','Đăng đồ')}${n('swaps','Swap của tôi',pending()?`<i>${pending()}</i>`:'')}${n('saved','Đã lưu')}</nav>
-${S.user?`<button class="me" data-a="go" data-id="prof"><span class="av">${e(S.user.name[0])}</span><span>${e(S.user.name.split(' ').pop())}</span>${ver()?TK:''}</button>`:`<button class="btn" data-a="auth">Đăng nhập / Đăng ký</button>`}`;
-$('#bn').innerHTML=S.user&&!ver()?`<div class="strip">Tài khoản chưa xác thực: bạn chỉ có thể xem đồ. <button data-a="verify">Xác thực thẻ sinh viên</button></div>`:''}
-/* ---------- cards ---------- */
-function card(i){const mine=isMe(i.who);
-return `<article class="card"><div class="art" data-a="open" data-id="${i.id}" style="background:${CC[i.cat]}" role="button" tabindex="0" aria-label="Xem ${e(i.t)}">${i.imgs&&i.imgs[0]?`<img src="${i.imgs[0]}" alt="">`:CE[i.cat]}<em class="cond">${i.cond}</em></div>
-<div class="cb"><h3>${e(i.t)}</h3><p class="who">${e(i.who)} ${TK} · ${e(i.school)}</p><p class="loc">📍 ${e(i.loc)}</p>
-<div class="bar"><button class="ic" data-a="fav" data-id="${i.id}" aria-label="Lưu">${S.saved.includes(i.id)?'❤️':'🤍'}</button>${mine?'<span class="who">Đồ của bạn</span>':`<button class="ic" data-a="chat" data-id="${i.id}" aria-label="Hỏi nhanh">💬</button><button class="btn" data-a="offer" data-id="${i.id}">🔄 Offer Swap</button>`}</div></div></article>`}
-function list(){return S.items.filter(i=>(!F.cat||i.cat===F.cat)&&(!F.school||i.school===F.school)&&(!F.q||(i.t+' '+i.desc+' '+i.who).toLowerCase().includes(F.q.toLowerCase())))}
-function grid(){const l=list(),g=$('#grid');if(!g)return;
-if(!l.length){g.className='';g.innerHTML=`<div class="empty"><p>Chưa có món đồ nào khớp bộ lọc.</p><button class="btn ghost" data-a="reset">Xoá bộ lọc</button></div>`;return}
-if(F.mode==='deck'){D=Math.min(D,l.length-1);g.className='deck';g.innerHTML=card(l[D])+`<div class="bar" style="margin-top:14px"><button class="btn ghost" data-a="prev">‹ Trước</button><button class="btn ghost" data-a="next">Bỏ qua ›</button></div><p class="deckn">${D+1} / ${l.length}</p>`}
-else{g.className='grid';g.innerHTML=l.map(card).join('')}}
-const V={};
-V.home=()=>`<section class="hero"><div><h1>Cũ người mới ta.</h1><p>Đổi đồ trực tiếp giữa sinh viên với nhau, không cần tiền. Đồ 0đ với bạn có thể là báu vật với người khác.</p><div class="cta"><button class="btn" data-a="scroll">Bắt đầu lướt</button><button class="btn ghost" data-a="go" data-id="up">Đăng món đồ đầu tiên</button></div></div><div class="stack" aria-hidden="true"><div>📚</div><div>🎧</div><div>👕</div></div></section>
-<section class="how"><div><b>1. Xác thực</b><span>Email .edu.vn và thẻ sinh viên</span></div><div><b>2. Gửi offer</b><span>Chọn 1–3 món của bạn để đổi</span></div><div><b>3. Hẹn gặp</b><span>Địa điểm an toàn gần trường</span></div><div><b>4. Đánh giá</b><span>Chấm sao sau khi đổi xong</span></div></section>
-<div class="tabs" id="tabs"><button class="tab on" data-a="cat" data-id="">Tất cả</button>${CATS.map(c=>`<button class="tab" data-a="cat" data-id="${c}">${CE[c]} ${c}</button>`).join('')}</div>
-<div class="tools"><input id="q" type="search" placeholder="Tìm giáo trình, quạt, áo khoác…" aria-label="Tìm kiếm"><select id="sc" aria-label="Lọc theo trường"><option value="">Tất cả trường / khu vực</option>${SCH.map(s=>`<option>${s}</option>`).join('')}</select><div class="seg"><button class="on" data-a="mode" data-id="grid">Lưới</button><button data-a="mode" data-id="deck">Lướt card</button></div></div><div id="grid"></div>`;
-V.saved=()=>{const l=S.items.filter(i=>S.saved.includes(i.id));return `<h2 class="t">Đã lưu</h2><p class="sub">Những món bạn muốn quay lại xem.</p>${l.length?`<div class="grid">${l.map(card).join('')}</div>`:`<div class="empty"><p>Bạn chưa lưu món nào. Bấm 🤍 trên một món đồ để lưu.</p><button class="btn" data-a="go" data-id="home">Đi khám phá</button></div>`}`};
-V.up=()=>`<h2 class="t">Đăng đồ</h2><p class="sub">Một trang, vài phút là xong. Chỉ tài khoản đã xác thực mới đăng được.</p>
-<form class="f" id="uf" onsubmit="return false"><div style="display:grid;gap:5px;font-weight:500;font-size:14px">Ảnh (tối đa 5)<div class="ph" id="ph"></div><input id="pf" type="file" accept="image/*" multiple hidden></div>
-<label>Tên sản phẩm<input id="u1" maxlength="70" placeholder="VD: Giáo trình Giải tích 1"></label>
-<div class="r2"><label>Danh mục<select id="u2">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label><label>Tình trạng<select id="u3">${CONDS.map(c=>`<option>${c}</option>`).join('')}</select></label></div>
-<label>Mô tả ngắn<textarea id="u4" rows="3" maxlength="200" placeholder="Đã dùng bao lâu, có lỗi gì không?"></textarea></label>
-<label>Món đồ mong muốn đổi lại <small>(không bắt buộc, chỉ để gợi ý)</small><input id="u5" placeholder="VD: Quạt mini, sách tiếng Anh"></label>
-<label>Vị trí tiện giao dịch<input id="u6" placeholder="VD: KTX Khu A, Cơ sở 1"></label>
-<button class="btn" data-a="publish">Đăng món đồ</button></form>`;
-V.prof=()=>{if(!S.user)return `<div class="empty"><p>Đăng nhập để xem hồ sơ.</p><button class="btn" data-a="auth">Đăng nhập / Đăng ký</button></div>`;const u=S.user,my=S.items.filter(i=>isMe(i.who)),done=S.offers.filter(o=>o.status==='done').length;
-return `<div class="prof"><span class="av">${e(u.name[0])}</span><div><h2 class="t" style="margin:0">${e(u.name)} ${ver()?TK:''}</h2><p class="who">${e(u.school)} · ${e(u.email)}</p><p>${ver()?`<span class="st d">Verified Student · MSSV ${e(u.sid)}</span>`:`<span class="st">Unverified</span> <button class="btn sm" data-a="verify">Xác thực ngay</button>`}</p>
-<div class="stats"><div><b>${my.length}</b><span>Món đang đăng</span></div><div><b>${done}</b><span>Swap hoàn thành</span></div><div><b>${S.reviews.length?(S.reviews.reduce((a,r)=>a+r.s,0)/S.reviews.length).toFixed(1):'–'}</b><span>Sao trung bình</span></div></div></div></div>
-<h3>Đồ của tôi</h3>${my.length?`<div class="grid" style="margin:12px 0 26px">${my.map(card).join('')}</div>`:`<p class="sub">Chưa có món nào. <a href="#" data-a="go" data-id="up">Đăng món đầu tiên</a></p>`}
-<h3>Đánh giá đã gửi</h3>${S.reviews.length?S.reviews.map(r=>`<p style="margin:8px 0"><span style="color:#f5a623">${'★'.repeat(r.s)}</span> cho <b>${e(r.about)}</b> ${r.t?'· '+e(r.t):''}</p>`).join(''):'<p class="sub">Chưa có đánh giá nào.</p>'}
-<p style="margin-top:30px"><button class="btn ghost sm" data-a="logout">Đăng xuất & xoá dữ liệu demo</button></p>`};
-V.swaps=()=>{if(!S.user)return `<div class="empty"><p>Đăng nhập để quản lý các offer swap.</p><button class="btn" data-a="auth">Đăng nhập / Đăng ký</button></div>`;
-const me=S.user.name,l=[...S.offers].reverse();
-const mini=i=>i?`<span class="mini"><s>${CE[i.cat]}</s>${e(i.t)}</span>`:'';
-return `<h2 class="t">Swap của tôi</h2><p class="sub">Offer bạn nhận, offer bạn gửi và các buổi hẹn.</p><div class="ol">${l.length?l.map(o=>{const inn=o.to===me,other=inn?o.by:o.to,stt={pending:['Chờ phản hồi',''],acc:['Đã chấp nhận','a'],done:['Hoàn thành','d'],no:['Đã từ chối','']}[o.status];
-return `<div class="o"><div class="row"><b>${inn?'Offer nhận từ':'Offer gửi tới'} ${e(other)}</b><span class="st ${stt[1]}">${stt[0]}</span></div>
-<div class="row">${o.give.map(id=>mini(item(id))).join('')}<span class="arrow">⇄</span>${mini(item(o.target))}</div>
-${o.note?`<p class="who">“${e(o.note)}”</p>`:''}${o.when?`<p>📍 ${e(o.where)} · 🕒 ${e(o.when)}</p>`:''}
-<div class="row">${o.status==='pending'&&inn?`<button class="btn sm" data-a="accept" data-id="${o.id}">Accept Offer</button><button class="btn ghost sm" data-a="decline" data-id="${o.id}">Từ chối</button>`:''}
-${o.status==='pending'&&!inn?`<button class="btn ghost sm" data-a="cancel" data-id="${o.id}">Huỷ offer</button><button class="btn ghost sm" data-a="fake" data-id="${o.id}" title="Chỉ có trong bản demo">Demo: đối phương chấp nhận</button>`:''}
-${o.status==='acc'?`<button class="btn sm" data-a="meet" data-id="${o.id}">Hẹn địa điểm & Chat</button>${o.doneMe?'<span class="who">Đang chờ bên kia xác nhận…</span>':`<button class="btn ghost sm" data-a="complete" data-id="${o.id}">Complete Swap</button>`}`:''}
-${o.status==='done'&&!o.rated?`<button class="btn sm" data-a="rate" data-id="${o.id}">Đánh giá ${e(other)}</button>`:''}</div></div>`}).join(''):`<div class="empty"><p>Chưa có offer nào. Vào Khám phá và bấm “Offer Swap” trên món bạn thích.</p><button class="btn" data-a="go" data-id="home">Đi khám phá</button></div>`}</div>`};
-function render(){head();$('#app').innerHTML=V[view]();if(view==='home')grid();if(view==='up')photos()}
-/* ---------- auth & verification ---------- */
-function authM(){W={};modal(`<h3>Tạo tài khoản sinh viên</h3><p class="sub">Cần email .edu.vn để nhận mã OTP.</p><div class="f" id="af">
-<label>Họ và tên<input id="a1" autocomplete="name"></label><label>Trường Đại học / Cao đẳng<select id="a2">${SCH.map(s=>`<option>${s}</option>`).join('')}</select></label>
-<label>Email sinh viên<input id="a3" type="email" placeholder="ten.sv@truong.edu.vn" autocomplete="email"></label><p id="ae" class="who" style="color:var(--pri2)"></p><button class="btn" data-a="otp">Gửi mã OTP</button></div>`)}
-function otpStep(){modal(`<h3>Nhập mã OTP</h3><p class="sub">Mã 6 số đã gửi tới ${e(W.email)}. <b>Bản demo: mã là ${W.code}</b></p><div class="f"><label>Mã OTP<input id="a4" inputmode="numeric" maxlength="6"></label><p id="ae" class="who" style="color:var(--pri2)"></p><button class="btn" data-a="otpok">Xác nhận</button></div>`)}
-function verifyM(){modal(`<h3>Xác thực thẻ sinh viên</h3><p class="sub">Tải ảnh 2 mặt thẻ (hoặc mã QR ứng dụng của trường). Hệ thống kiểm tra Mã SV, Họ tên và Trường.</p><div class="f" id="vf"><div class="r2"><label>Mặt trước<input id="v1" type="file" accept="image/*"></label><label>Mặt sau / QR<input id="v2" type="file" accept="image/*"></label></div>
-<label>Mã sinh viên<input id="v3" placeholder="VD: 2211110045"></label><p class="who">Họ tên: ${e(S.user.name)} · Trường: ${e(S.user.school)}</p><p id="ae" class="who" style="color:var(--pri2)"></p><button class="btn" data-a="scan">Gửi xác thực</button></div>`)}
-function scan(){const sid=$('#v3').value.trim();if(!$('#v1').files[0]||!$('#v2').files[0])return $('#ae').textContent='Hãy tải đủ ảnh 2 mặt thẻ.';if(sid.length<6)return $('#ae').textContent='Mã sinh viên cần ít nhất 6 ký tự.';
-const rows=[['Mã sinh viên',sid],['Họ và tên',S.user.name],['Trường',S.user.school]];
-$('#vf').innerHTML=`<div class="chk">${rows.map((r,k)=>`<div id="c${k}">⏳ Đang đọc ${r[0]}…</div>`).join('')}</div>`;
-rows.forEach((r,k)=>setTimeout(()=>{$('#c'+k).innerHTML=`✅ ${r[0]}: <b>${e(r[1])}</b>`;if(k===2)setTimeout(()=>finish(sid),600)},700*(k+1)))}
-function finish(sid){S.user.st='v';S.user.sid=sid;const me=S.user.name;
-if(!S.items.some(i=>isMe(i.who))){S.items.unshift(mk(S.n++,'Áo thun basic trắng','Quần áo/Phụ kiện','Mới 95%',me,S.user.school,'Cổng trường','Cotton 100%, size M, ít mặc.','Sách chuyên ngành'),mk(S.n++,'Sổ tay ô ly A5 (3 quyển)','Khác','Mới 100%',me,S.user.school,'Thư viện','Chưa viết, bìa cứng.','Bút hoặc đèn học'));
-S.offers.push({id:S.n++,by:'Linh Trần',to:me,target:S.items[0].id,give:[4],note:'Mình đổi tai nghe Sony lấy áo của bạn nhé!',status:'pending',msgs:[]})}
-save();render();modal(`<h3>Đã xác thực ${TK}</h3><p class="sub">Bạn nhận được Tích Xanh Sinh Viên. Từ giờ bạn có thể đăng đồ và gửi offer. Chúng mình đã thêm 2 món mẫu và 1 offer để bạn thử luồng swap.</p><button class="btn" data-a="close">Bắt đầu</button>`)}
-/* ---------- offer / meetup / chat / rating ---------- */
-function offerM(id){const t=item(id),my=S.items.filter(i=>isMe(i.who));W.t=id;
-modal(`<h3>Offer Swap cho “${e(t.t)}”</h3><p class="sub">Chọn 1–3 món của bạn để đổi lấy. ${t.want?`${e(t.who)} đang tìm: <b>${e(t.want)}</b>.`:''}</p>
-${my.length?my.map(i=>`<label class="pick"><input type="checkbox" value="${i.id}"><span style="font-size:24px">${CE[i.cat]}</span><span>${e(i.t)}<br><small class="who">${i.cond}</small></span></label>`).join(''):`<div class="empty"><p>Bạn chưa có món nào trên sàn.</p><button class="btn" data-a="go" data-id="up">Đăng đồ trước</button></div>`}
-${my.length?`<div class="f"><label>Lời nhắn (tuỳ chọn)<input id="on" maxlength="120" placeholder="Mình muốn đổi cuốn sách này lấy cái quạt KTX của bạn nhé!"></label><p id="ae" class="who" style="color:var(--pri2)"></p><button class="btn" data-a="send">Gửi offer</button></div>`:''}`)}
-function chatBox(k){return `<div class="chat" id="cl">${(S.chats[k]||[]).map(m=>`<div class="msg ${m.me?'me':''}">${e(m.t)}</div>`).join('')||'<span class="who">Chưa có tin nhắn. Hãy chào một câu!</span>'}</div><div class="cs"><input id="ci" placeholder="Nhập tin nhắn…" aria-label="Tin nhắn"><button class="btn sm" data-a="say" data-id="${k}">Gửi</button></div>`}
-function chatM(k,title){modal(`<h3>${e(title)}</h3>${chatBox(k)}`)}
-function meetM(id){const o=S.offers.find(x=>x.id==id),other=o.by===S.user.name?o.to:o.by,d=new Date().toISOString().slice(0,10);W.o=id;
-modal(`<h3>Hẹn địa điểm swap với ${e(other)}</h3><p class="sub">Chọn nơi công cộng, đông người, gần trường.</p><div class="f"><div class="spots">${SPOTS.map(s=>`<label><input type="radio" name="sp" value="${s}" ${o.where===s?'checked':''}>${s}</label>`).join('')}</div>
-<div class="r2"><label>Ngày<input id="md" type="date" min="${d}" value="${o.date||d}"></label><label>Giờ<input id="mt" type="time" value="${o.time||'12:00'}"></label></div><button class="btn" data-a="plan">Lưu lịch hẹn</button></div>
-<h3 style="margin-top:20px;font-size:17px">Chat trực tiếp</h3>${chatBox('o'+id)}`)}
-function rateM(id){W={o:id,s:0};modal(`<h3>Đánh giá uy tín</h3><p class="sub">Trải nghiệm swap của bạn thế nào?</p><div class="stars" id="st">${[1,2,3,4,5].map(n=>`<button data-a="star" data-id="${n}" aria-label="${n} sao">★</button>`).join('')}</div><div class="f"><label>Nhận xét<input id="rt" maxlength="120" placeholder="Đúng hẹn, đồ giống mô tả…"></label><p id="ae" class="who" style="color:var(--pri2)"></p><button class="btn" data-a="rsend">Gửi đánh giá</button></div>`)}
-function photos(){W.im=W.im||[];$('#ph').innerHTML=W.im.map(s=>`<div class="p"><img src="${s}" alt=""></div>`).join('')+(W.im.length<5?`<div class="p" id="add" role="button" tabindex="0" aria-label="Thêm ảnh">＋</div>`:'')}
-/* ---------- actions ---------- */
-const A={
-go:id=>{closeM();go(id)},close:closeM,bg:(id,b,ev)=>{if(ev.target===b)closeM()},auth:authM,verify:verifyM,scan,
-scroll:()=>$('#tabs').scrollIntoView({behavior:'smooth'}),
-cat:id=>{F.cat=id;D=0;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.id===id));grid()},
-mode:(id,b)=>{F.mode=id;D=0;document.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b));grid()},
-reset:()=>{F.cat='';F.school='';F.q='';render()},prev:()=>{D=Math.max(0,D-1);grid()},next:()=>{D=Math.min(list().length-1,D+1);grid()},
-fav:id=>{id=+id;S.saved=S.saved.includes(id)?S.saved.filter(x=>x!==id):[...S.saved,id];save();view==='saved'?render():grid();if(view!=='home'&&view!=='saved')render();toast(S.saved.includes(id)?'Đã lưu món đồ':'Đã bỏ lưu')},
-open:id=>{const i=item(id),mine=isMe(i.who);modal(`<div class="card"><div class="art" style="background:${CC[i.cat]};cursor:default;aspect-ratio:16/10">${i.imgs&&i.imgs[0]?`<img src="${i.imgs[0]}" alt="">`:CE[i.cat]}<em class="cond">${i.cond}</em></div></div><h3 style="margin-top:14px">${e(i.t)}</h3><p class="who">${e(i.who)} ${TK} · ${e(i.school)} · 📍 ${e(i.loc)}</p><p style="margin:10px 0">${e(i.desc)||'Chưa có mô tả.'}</p>${i.want?`<p class="mini">Mong muốn đổi lại: <b>${e(i.want)}</b></p>`:''}<div class="bar" style="margin-top:14px">${mine?'<span class="who">Đây là đồ của bạn</span>':`<button class="ic" data-a="chat" data-id="${i.id}">💬</button><button class="btn" data-a="offer" data-id="${i.id}">🔄 Offer Swap</button>`}</div>`)},
-chat:id=>{if(!S.user)return authM();const i=item(id);chatM('i'+id,'Hỏi nhanh '+i.who+' về “'+i.t+'”')},
-say:k=>{const v=$('#ci').value.trim();if(!v)return;(S.chats[k]=S.chats[k]||[]).push({me:1,t:v});$('#ci').value='';paint(k);save();
-setTimeout(()=>{(S.chats[k]=S.chats[k]||[]).push({t:['Ok bạn nhé 👍','Mình rảnh chiều nay, bạn thì sao?','Đồ còn nguyên nhé, yên tâm!'][S.chats[k].length%3]});paint(k);save()},1100)},
-offer:id=>{if(gate())offerM(id)},
-send:()=>{const g=[...document.querySelectorAll('.pick input:checked')].map(x=>+x.value);if(!g.length||g.length>3)return $('#ae').textContent='Chọn từ 1 đến 3 món để đổi.';
-const t=item(W.t);S.offers.push({id:S.n++,by:S.user.name,to:t.who,target:t.id,give:g,note:$('#on').value.trim(),status:'pending',msgs:[]});save();closeM();go('swaps');toast('Đã gửi offer swap')},
-accept:id=>{const o=S.offers.find(x=>x.id==id);o.status='acc';save();render();meetM(id)},
-decline:id=>{S.offers.find(x=>x.id==id).status='no';save();render()},
-cancel:id=>{S.offers=S.offers.filter(x=>x.id!=id);save();render()},
-fake:id=>{S.offers.find(x=>x.id==id).status='acc';save();render();toast('Offer của bạn đã được chấp nhận. Hãy hẹn địa điểm.')},
-meet:meetM,
-plan:()=>{const o=S.offers.find(x=>x.id==W.o),s=document.querySelector('input[name=sp]:checked');if(!s)return toast('Chọn một địa điểm hẹn');o.where=s.value;o.date=$('#md').value;o.time=$('#mt').value;o.when=o.date.split('-').reverse().join('/')+' lúc '+o.time;save();render();closeM();toast('Đã lưu lịch hẹn')},
-complete:id=>{const o=S.offers.find(x=>x.id==id);o.doneMe=1;save();render();toast('Đã xác nhận. Chờ đối phương bấm Complete Swap…');
-setTimeout(()=>{o.status='done';save();if(view==='swaps')render();toast('Cả hai đã hoàn thành. Hãy đánh giá nhau!')},1800)},
-rate:rateM,star:id=>{W.s=+id;document.querySelectorAll('#st button').forEach((b,k)=>b.classList.toggle('on',k<W.s))},
-rsend:()=>{if(!W.s)return $('#ae').textContent='Chọn số sao từ 1 đến 5.';const o=S.offers.find(x=>x.id==W.o);o.rated=1;S.reviews.push({about:o.by===S.user.name?o.to:o.by,s:W.s,t:$('#rt').value.trim()});save();closeM();render();toast('Cảm ơn bạn đã đánh giá')},
-otp:()=>{const n=$('#a1').value.trim(),m=$('#a3').value.trim();if(n.length<2)return $('#ae').textContent='Nhập họ và tên của bạn.';
-if(!/^[^\s@]+@[^\s@]+\.edu\.vn$/i.test(m))return $('#ae').textContent='Cần email sinh viên có đuôi .edu.vn.';W={name:n,school:$('#a2').value,email:m,code:String(100000+Math.floor(Math.random()*899999))};otpStep()},
-otpok:()=>{if($('#a4').value.trim()!==W.code)return $('#ae').textContent='Mã OTP chưa đúng. Kiểm tra lại mã trên màn hình.';
-S.user={name:W.name,school:W.school,email:W.email,st:'u'};save();render();modal(`<h3>Tạo tài khoản thành công</h3><p class="sub">Tài khoản đang ở trạng thái <b>Unverified</b>: bạn chỉ được xem đồ. Xác thực thẻ sinh viên để đăng đồ và gửi offer.</p><div class="bar"><button class="btn" data-a="verify">Xác thực ngay</button><button class="btn ghost" data-a="close">Để sau</button></div>`)},
-publish:()=>{if(!gate())return;const t=$('#u1').value.trim();if(t.length<3)return toast('Nhập tên sản phẩm');if(!$('#u6').value.trim())return toast('Nhập vị trí tiện giao dịch');
-const n=mk(S.n++,t,$('#u2').value,$('#u3').value,S.user.name,S.user.school,$('#u6').value.trim(),$('#u4').value.trim(),$('#u5').value.trim());n.imgs=W.im||[];S.items.unshift(n);W.im=[];save();F.cat='';go('prof');toast('Đã đăng món đồ')},
-logout:()=>{try{localStorage.removeItem('swapdrobe')}catch(_){}location.reload()}};
-function paint(k){const c=$('#cl');if(c){c.innerHTML=S.chats[k].map(m=>`<div class="msg ${m.me?'me':''}">${e(m.t)}</div>`).join('');c.scrollTop=c.scrollHeight}}
-document.addEventListener('click',ev=>{if(ev.target.id==='add'||ev.target.closest('#add')){if(!gate())return;$('#pf').click();return}
-const b=ev.target.closest('[data-a]');if(!b)return;ev.preventDefault();const f=A[b.dataset.a];f&&f(b.dataset.id,b,ev)});
-document.addEventListener('keydown',ev=>{if(ev.key==='Enter'&&ev.target.id==='ci')document.querySelector('[data-a=say]').click();if((ev.key==='Enter'||ev.key===' ')&&ev.target.getAttribute('role')==='button'){ev.preventDefault();ev.target.click()}});
-document.addEventListener('input',ev=>{if(ev.target.id==='q'){F.q=ev.target.value;D=0;grid()}});
-document.addEventListener('change',ev=>{const t=ev.target;if(t.id==='sc'){F.school=t.value;D=0;grid()}
-if(t.id==='pf'){[...t.files].slice(0,5-(W.im||[]).length).forEach(f=>{const r=new FileReader();r.onload=()=>{(W.im=W.im||[]).push(r.result);photos()};r.readAsDataURL(f)});t.value=''}});
-render();
-</script></body></html>
+const SCHOOLS=['ĐH Bách Khoa','ĐH Quốc Gia','ĐH Ngoại Thương','ĐH Kinh Tế Quốc Dân','ĐH FPT','ĐH Sư Phạm'];
+const PAL=[['#6B705C','#F3EFE5'],['#A6785D','#F3EFE5'],['#85866A','#292824'],['#8A735D','#F3EFE5'],['#D9D2BF','#292824'],['#4d5143','#F3EFE5']];
+const ph=(t,i)=>{const [a,b]=PAL[i%PAL.length];return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="${a}"/><circle cx="220" cy="90" r="60" fill="none" stroke="${b}" opacity=".35"/><rect x="40" y="250" width="220" height="1" fill="${b}" opacity=".5"/><text x="40" y="290" font-family="Georgia,serif" font-size="22" fill="${b}">${t.slice(0,22)}</text><text x="40" y="318" font-family="sans-serif" font-size="11" fill="${b}" opacity=".7">ảnh mẫu — người đăng tải ảnh thật</text></svg>`)};
+let items=[
+['Giải tích 1 — Nguyễn Đình Trí','Sách vở/Giáo trình','Mới 90%','Minh Anh','ĐH Bách Khoa','KTX Khu A','Quạt mini, đèn bàn'],
+['Quạt tích điện mini','Đồ dùng KTX','Mới 95%','Hải Đăng','ĐH Quốc Gia','Thư viện trung tâm','Sách tiếng Anh'],
+['Áo khoác denim UNIQLO size M','Quần áo/Phụ kiện','Mới 90%','Thu Hà','ĐH Ngoại Thương','Cổng trường','Áo len'],
+['Bàn phím cơ 87 phím','Đồ điện tử','Mới 85%','Quốc Bảo','ĐH FPT','Cơ sở 1','Chuột không dây'],
+['Đèn bàn LED kẹp','Đồ dùng KTX','Mới 95%','Lan Phương','ĐH Kinh Tế Quốc Dân','KTX Khu B','Giáo trình Kinh tế vi mô'],
+['Kinh tế vi mô — Mankiw','Sách vở/Giáo trình','Mới 80%','Gia Huy','ĐH Kinh Tế Quốc Dân','Thư viện','Đồ dùng KTX'],
+['Tai nghe chụp tai','Đồ điện tử','Mới 90%','Khánh Linh','ĐH Sư Phạm','Cổng trường','Sách văn học'],
+['Túi tote vải canvas','Quần áo/Phụ kiện','Mới 95%','Bảo Châu','ĐH Bách Khoa','Cơ sở 2','Sổ tay'],
+['Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Tuấn Kiệt','ĐH Quốc Gia','KTX Khu A','Ấm siêu tốc'],
+['Máy tính Casio fx-580','Đồ điện tử','Mới 90%','Mai Chi','ĐH Ngoại Thương','Thư viện','Sách ngoại ngữ']
+].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cond:a[2],owner:a[3],school:a[4],loc:a[5],want:a[6],img:[ph(a[0],i)],v:true,mine:false}));
+let me={name:'Bạn',school:'',email:'',status:'none',sid:''}; // none | pending | verified
+let mine=[['Truyện Totto-chan','Sách vở/Giáo trình','Mới 90%'],['Áo len cổ lọ','Quần áo/Phụ kiện','Mới 95%'],['Ổ cắm điện đa năng','Đồ dùng KTX','Mới 90%']].map((a,i)=>({id:100+i,name:a[0],cat:a[1],cond:a[2],owner:'Bạn',school:'Của bạn',loc:'KTX Khu A',want:'',img:[ph(a[0],i+3)],mine:true,v:true}));
+items=items.concat(mine);
+let saved=new Set(),F={school:'',cat:'',q:''},mode='deck',deckI=0,vw='home';
+let offers=[{id:1,target:101,from:'Hải Đăng',school:'ĐH Quốc Gia',give:[2],msg:'Mình muốn đổi cái quạt KTX lấy áo len của bạn nhé!',status:'pending',when:''}];
+let offerSel=new Set(),offerFor=null,place='',stars=0;
+const byId=id=>items.find(x=>x.id==id);
+const bd=u=>u.v?'<span class="badge">Tích xanh SV</span>':'';
+function toast(t){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2400)}
+function who(){$('#who').innerHTML=me.status==='verified'?`${me.name} <span class="badge">Verified</span>`:me.status==='pending'?'Đang chờ duyệt':'Đăng nhập / Đăng ký'}
+function go(v,x){vw=v;document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('act',a.dataset.v===v));window.scrollTo(0,0);$('#app').innerHTML=V[v](x);who();if(v==='explore')bindDeck()}
+function filt(){return items.filter(i=>!i.mine&&(!F.school||i.school===F.school)&&(!F.cat||i.cat===F.cat)&&(!F.q||(i.name+i.cat+i.school+i.loc).toLowerCase().includes(F.q.toLowerCase())))}
+function tile(i){return `<div class="it" onclick="detail(${i.id})"><img src="${i.img[0]}" alt="${i.name}"><div class="n">${i.name}</div><div class="m">${i.cond} · ${i.owner} ${i.v?'<span class="badge">SV</span>':''}</div><div class="m">${i.school}</div></div>`}
+const V={
+home:()=>`<div class="hero"><div class="l"><span class="tag">SINH VIÊN ĐỔI ĐỒ — KHÔNG DÙNG TIỀN</span><p class="serif" style="max-width:460px;color:var(--sumi);font-size:22px;line-height:1.7">Đổi sách, quần áo, đồ KTX với sinh viên cùng trường. Không cần định giá — chỉ cần hai người cùng thấy món đồ ấy xứng đáng.</p><div><button class="pri" onclick="go('explore')">Bắt đầu lướt</button> <button onclick="go('join')">Xác thực sinh viên</button></div></div><div class="r"><i style="width:340px;height:340px;right:-60px;top:-60px"></i><i style="width:200px;height:200px;left:40px;bottom:50px"></i></div></div>
+<div class="wrap"><section><div class="sh"><h2>Danh mục</h2></div><div class="cats">${CATS.map(c=>`<div class="cat serif" onclick="F.cat='${c}';go('explore')">${c}</div>`).join('')}</div></section>
+<section style="padding-top:0"><div class="sh"><h2>Mới đăng gần đây</h2><a onclick="go('explore')">Xem tất cả</a></div><div class="grid">${items.filter(i=>!i.mine).slice(0,8).map(tile).join('')}</div></section>
+<section><div class="sh"><h2>Cách hoạt động</h2></div><div class="steps"><div><b>01</b><h3>Xác thực</h3><p>Email .edu.vn, OTP, kiểm tra Mã SV — nhận tích xanh.</p></div><div><b>02</b><h3>Đăng đồ</h3><p>Tối đa 5 ảnh, mô tả ngắn, gợi ý món muốn đổi.</p></div><div><b>03</b><h3>Gửi Offer</h3><p>Chọn 1–3 món của bạn để đổi lấy món bạn thích.</p></div><div><b>04</b><h3>Hẹn &amp; đổi</h3><p>Chọn địa điểm an toàn, gặp nhau, đánh giá uy tín.</p></div></div></section>
+<section style="padding-top:0"><div class="sh"><h2>Cộng đồng</h2></div><div class="steps" style="grid-template-columns:repeat(3,1fr)"><div><b>${items.length*127}</b><p>món đồ đã tìm chủ mới</p></div><div><b>${SCHOOLS.length*3}</b><p>trường đại học &amp; cao đẳng</p></div><div><b>4.8</b><p>điểm uy tín trung bình</p></div></div></section></div>`,
+explore:()=>{const r=filt();return `<div class="wrap" style="padding-top:32px"><div class="sh"><h2>Khám phá <span style="font-size:14px;color:var(--wood)">${r.length} món${F.q?` cho "${F.q}"`:''}</span></h2><div><button class="sm ${mode==='deck'?'on':''}" onclick="mode='deck';go('explore')">Lướt thẻ</button> <button class="sm ${mode==='grid'?'on':''}" onclick="mode='grid';go('explore')">Lưới</button></div></div>
+<div class="ex"><div class="fl"><h3>Trường / khu vực</h3><div class="opt ${!F.school?'on':''}" onclick="F.school='';go('explore')">Tất cả</div>${SCHOOLS.map(s=>`<div class="opt ${F.school===s?'on':''}" onclick="F.school='${s}';deckI=0;go('explore')">${s}</div>`).join('')}<h3>Danh mục</h3><div class="opt ${!F.cat?'on':''}" onclick="F.cat='';go('explore')">Tất cả</div>${CATS.map(s=>`<div class="opt ${F.cat===s?'on':''}" onclick="F.cat='${s}';deckI=0;go('explore')">${s}</div>`).join('')}</div>
+<div>${!r.length?'<p>Không tìm thấy món nào. Thử bỏ bớt bộ lọc.</p>':mode==='grid'?`<div class="grid">${r.map(tile).join('')}</div>`:deckHTML(r)}</div></div></div>`},
+upload:()=>me.status!=='verified'?gate('Đăng đồ'):`<div class="wrap" style="max-width:720px;padding:40px 24px"><div class="sh"><h2>Đăng đồ mới</h2></div>
+<div class="drop" onclick="$('#fi').click()">Chọn tối đa 5 ảnh<br><small style="color:var(--wood)">JPG / PNG</small></div><input type="file" id="fi" accept="image/*" multiple hidden onchange="prevImgs(this)"><div class="prev" id="pv"></div>
+<label>Tên sản phẩm</label><input id="u1" placeholder="VD: Giáo trình Vật lý đại cương">
+<div class="two"><div><label>Danh mục</label><select id="u2">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></div><div><label>Tình trạng</label><select id="u3">${['Mới 100%','Mới 95%','Mới 90%','Mới 85%','Mới 80%'].map(c=>`<option>${c}</option>`).join('')}</select></div></div>
+<label>Mô tả ngắn</label><textarea id="u4" rows="3"></textarea><label>Món đồ mong muốn đổi lại (không bắt buộc)</label><input id="u5"><label>Vị trí tiện giao dịch</label><input id="u6" placeholder="VD: KTX Khu A, Cơ sở 1">
+<div style="margin-top:20px"><button class="pri" onclick="postItem()">Đăng bài</button></div></div>`,
+manage:()=>me.status!=='verified'?gate('Swap của tôi'):`<div class="wrap" style="padding:40px 24px"><div class="sh"><h2>Swap Management</h2></div><div class="tabs"><button class="sm on" id="mt0" onclick="mTab(0)">Offer nhận được</button><button class="sm" id="mt1" onclick="mTab(1)">Đồ của tôi</button><button class="sm" id="mt2" onclick="mTab(2)">Đã lưu</button></div><div id="mb">${offerList()}</div></div>`,
+join:()=>`<div class="wrap" style="max-width:560px;padding:40px 24px"><div class="sh"><h2>Xác thực sinh viên</h2></div><div id="jn">${joinStep()}</div></div>`,
+about:()=>`<div class="wrap" style="max-width:720px;padding:56px 24px"><h2 class="serif" style="font-size:34px;margin-bottom:16px">Things Change Hands, Stories Live On.</h2><p style="margin-bottom:12px">SWAPDROBE lấy cảm hứng từ wabi-sabi: vẻ đẹp của món đồ đã được dùng và trân trọng. Ở đây không có giá — một cuốn giáo trình có thể đổi lấy một chiếc quạt, nếu cả hai đều thấy xứng đáng.</p><p>An toàn: chỉ sinh viên đã xác thực mới được đăng và gửi offer, gặp nhau ở địa điểm công cộng gần trường, và mọi giao dịch đều có đánh giá uy tín.</p></div>`
+};
+function gate(t){return `<div class="wrap" style="max-width:560px;padding:80px 24px;text-align:center"><h2 class="serif" style="font-size:28px;margin-bottom:10px">${t} cần tài khoản đã xác thực</h2><p style="color:var(--wood);margin-bottom:20px">Hoàn tất xác thực sinh viên để nhận tích xanh.</p><button class="pri" onclick="go('join')">Xác thực ngay</button></div>`}
+/* join flow */
+let jst=0;
+function joinStep(){
+ if(me.status==='verified')return `<p><span class="badge">Verified</span> Tài khoản <b>${me.name}</b> (${me.school}) đã được xác thực. Bạn có thể đăng đồ và gửi offer.</p><br><button class="pri" onclick="go('explore')">Khám phá</button>`;
+ if(me.status==='pending')return `<p>Admin / AI OCR đang kiểm tra Mã SV, Họ tên, Trường của bạn...</p><br><button class="pri" onclick="finishVerify()">Mô phỏng: duyệt thành công</button>`;
+ const bar=`<p style="color:var(--wood);margin-bottom:8px">Bước ${jst+1}/3</p>`;
+ if(jst===0)return bar+`<label>Trường Đại học / Cao đẳng</label><select id="j1"><option value="">— Chọn trường —</option>${SCHOOLS.map(s=>`<option>${s}</option>`).join('')}</select><label>Email sinh viên (.edu.vn)</label><input id="j2" placeholder="mssv@school.edu.vn"><div style="margin-top:20px"><button class="pri" onclick="sendOTP()">Gửi mã OTP</button></div>`;
+ if(jst===1)return bar+`<p>Mã OTP đã gửi tới <b>${me.email}</b>. (Demo: nhập 123456)</p><label>Mã OTP</label><input id="j3" maxlength="6"><div style="margin-top:20px"><button class="pri" onclick="chkOTP()">Xác nhận</button></div>`;
+ return bar+`<label>Họ và tên</label><input id="j4"><label>Mã sinh viên</label><input id="j5"><label>Ảnh thẻ sinh viên</label><input type="file" accept="image/*"><div style="margin-top:20px"><button class="pri" onclick="submitSV()">Gửi xét duyệt</button></div>`}
+function sendOTP(){const s=$('#j1').value,e=$('#j2').value.trim();if(!s)return toast('Vui lòng chọn trường');if(!/^[^@\s]+@[^@\s]+\.edu\.vn$/i.test(e))return toast('Cần email sinh viên đuôi .edu.vn');me.school=s;me.email=e;jst=1;$('#jn').innerHTML=joinStep()}
+function chkOTP(){if($('#j3').value!=='123456')return toast('Sai mã OTP');jst=2;$('#jn').innerHTML=joinStep()}
+function submitSV(){const n=$('#j4').value.trim(),m=$('#j5').value.trim();if(!n||!m)return toast('Nhập đủ Họ tên và Mã SV');me.name=n;me.sid=m;me.status='pending';$('#jn').innerHTML=joinStep();who()}
+function finishVerify(){me.status='verified';mine_update();toast('Đã xác thực — bạn nhận được Tích Xanh Sinh Viên');go('join')}
+function mine_update(){items.filter(i=>i.mine).forEach(i=>{i.owner=me.name;i.school=me.school})}
+/* deck */
+function deckHTML(r){if(deckI>=r.length)return `<div style="text-align:center;padding:60px 0"><h3 class="serif" style="font-size:24px">Bạn đã xem hết rồi</h3><br><button onclick="deckI=0;go('explore')">Xem lại từ đầu</button></div>`;
+ const c=r[deckI],n=r[deckI+1];
+ return `<div class="deckw"><div class="deck">${n?`<div class="sc b2"><img src="${n.img[0]}" alt=""></div>`:''}<div class="sc b1" id="topc" data-id="${c.id}"><img src="${c.img[0]}" alt="${c.name}"><div class="bd"><span class="tag">${c.cat}</span><h3 class="serif">${c.name}</h3><div><span class="pill">${c.cond}</span><span class="pill">${c.loc}</span></div><div>${c.owner} ${bd(c)}</div><div class="m" style="color:var(--wood)">${c.school}</div>${c.want?`<div style="font-size:12px;color:var(--moss)">Muốn đổi: ${c.want}</div>`:''}
+ <div class="acts"><button class="sm" onclick="event.stopPropagation();toggleSave(${c.id})">${saved.has(c.id)?'Đã lưu':'Lưu'}</button><button class="sm off" onclick="event.stopPropagation();offerOpen(${c.id})">Offer Swap</button><button class="sm" onclick="event.stopPropagation();askChat(${c.id})">Hỏi nhanh</button></div></div></div></div>
+ <div><button class="sm" onclick="swipe(-1)">Bỏ qua</button> <button class="sm" onclick="detail(${c.id})">Chi tiết</button> <button class="sm" onclick="swipe(1)">Lưu &amp; tiếp</button></div><small style="color:var(--wood)">Kéo thẻ sang trái để bỏ qua, sang phải để lưu</small></div>`}
+function bindDeck(){const e=$('#topc');if(!e)return;let sx=0,dx=0,d=false;e.onpointerdown=ev=>{d=true;sx=ev.clientX;e.style.transition='none';e.setPointerCapture(ev.pointerId)};e.onpointermove=ev=>{if(!d)return;dx=ev.clientX-sx;e.style.transform=`translateX(${dx}px) rotate(${dx/25}deg)`};e.onpointerup=()=>{d=false;e.style.transition='';if(dx>110)swipe(1);else if(dx<-110)swipe(-1);else e.style.transform='';dx=0}}
+function swipe(dir){const r=filt();if(dir>0&&r[deckI]){saved.add(r[deckI].id);toast('Đã lưu')}deckI++;go('explore')}
+function toggleSave(id){saved.has(id)?saved.delete(id):saved.add(id);toast(saved.has(id)?'Đã lưu':'Đã bỏ lưu');if(vw==='explore')go('explore')}
+/* detail */
+function detail(id){const i=byId(id);modal(`<h2 class="serif">${i.name}</h2><img src="${i.img[0]}" style="width:100%;max-height:320px;object-fit:cover;margin:10px 0" alt="${i.name}"><p><span class="pill">${i.cat}</span><span class="pill">${i.cond}</span><span class="pill">${i.loc}</span></p><p style="margin-top:8px">${i.owner} ${bd(i)} — ${i.school}</p>${i.desc?`<p>${i.desc}</p>`:''}${i.want?`<p style="color:var(--moss)">Muốn đổi lại: ${i.want}</p>`:''}<div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">${i.mine?'':`<button class="off" onclick="offerOpen(${i.id})">Offer Swap</button><button onclick="askChat(${i.id})">Hỏi nhanh</button><button onclick="toggleSave(${i.id})">Lưu</button>`}<button onclick="closeM()">Đóng</button></div>`)}
+function modal(h){$('#md').innerHTML=h;$('#ov').classList.add('s')}
+function closeM(){$('#ov').classList.remove('s')}
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeM()};
+/* offer flow */
+function offerOpen(id){if(me.status!=='verified'){closeM();toast('Cần xác thực sinh viên để gửi offer');return go('join')}
+ offerFor=id;offerSel=new Set();const t=byId(id),my=items.filter(i=>i.mine);
+ modal(`<h2 class="serif">Offer Swap</h2><p style="color:var(--wood)">Bạn muốn đổi lấy: <b>${t.name}</b> của ${t.owner}</p><label>Chọn 1–3 món của bạn</label><div class="pick">${my.map(i=>`<div id="p${i.id}" onclick="pickO(${i.id})"><img src="${i.img[0]}" alt=""><span>${i.name}</span></div>`).join('')}</div><label>Lời nhắn (tùy chọn)</label><textarea id="om" rows="2" placeholder="Mình muốn đổi cuốn sách này lấy cái quạt KTX của bạn nhé!"></textarea><div style="margin-top:16px;display:flex;gap:8px"><button class="off" onclick="sendOffer()">Gửi offer</button><button onclick="closeM()">Hủy</button></div>`)}
+function pickO(id){if(offerSel.has(id))offerSel.delete(id);else{if(offerSel.size>=3)return toast('Tối đa 3 món');offerSel.add(id)}$('#p'+id).classList.toggle('on',offerSel.has(id))}
+function sendOffer(){if(!offerSel.size)return toast('Hãy chọn ít nhất 1 món');const t=byId(offerFor);toast('Đã gửi offer tới '+t.owner);closeM();botMsg(t.owner,'Cảm ơn bạn đã gửi offer, để mình xem nhé!')}
+/* manage */
+function mTab(n){[0,1,2].forEach(i=>$('#mt'+i).classList.toggle('on',i===n));$('#mb').innerHTML=[offerList,myList,savedList][n]()}
+function offerList(){if(!offers.length)return '<p>Chưa có offer nào.</p>';return offers.map(o=>{const t=byId(o.target);return `<div class="card"><div style="flex:1;min-width:220px"><span class="tag">${o.from} · ${o.school}</span><div>Muốn đổi lấy <b>${t.name}</b></div><div style="color:var(--wood)">Đưa ra: ${o.give.map(g=>byId(g).name).join(' + ')}</div>${o.msg?`<i style="color:var(--moss)">"${o.msg}"</i>`:''}${o.when?`<div style="margin-top:6px">Hẹn: ${o.when}</div>`:''}</div><div style="display:flex;gap:6px;flex-wrap:wrap">${
+ o.status==='pending'?`<button class="sm pri" onclick="acceptO(${o.id})">Accept</button><button class="sm" onclick="o_rej(${o.id})">Từ chối</button>`:
+ o.status==='scheduled'?`<button class="sm" onclick="openChatWith('${o.from}')">Chat</button><button class="sm pri" onclick="rateO(${o.id})">Complete Swap</button>`:
+ `<span class="badge">${o.status==='done'?'Hoàn thành':'Đã từ chối'}</span>`}</div></div>`}).join('')}
+function myList(){return `<div class="grid">${items.filter(i=>i.mine).map(tile).join('')}</div>`}
+function savedList(){const s=items.filter(i=>saved.has(i.id));return s.length?`<div class="grid">${s.map(tile).join('')}</div>`:'<p>Chưa lưu món nào.</p>'}
+function o_rej(id){offers.find(o=>o.id==id).status='rejected';mTab(0)}
+function acceptO(id){place='';modal(`<h2 class="serif">Meetup Planner</h2><p style="color:var(--wood)">Chọn địa điểm an toàn gần trường</p><label>Địa điểm</label><div class="chips">${['Cổng trường','Thư viện','KTX (sảnh chung)','Quán cafe gần trường','Căng tin'].map(p=>`<span onclick="pl(this)">${p}</span>`).join('')}</div><div class="two"><div><label>Ngày</label><input type="date" id="md1"></div><div><label>Giờ</label><input type="time" id="md2" value="17:00"></div></div><div style="margin-top:16px;display:flex;gap:8px"><button class="pri" onclick="confirmMeet(${id})">Chốt lịch &amp; mở chat</button><button onclick="closeM()">Để sau</button></div>`)}
+function pl(e){document.querySelectorAll('.chips span').forEach(x=>x.classList.remove('on'));e.classList.add('on');place=e.textContent}
+function confirmMeet(id){const d=$('#md1').value,t=$('#md2').value;if(!place||!d)return toast('Chọn địa điểm và ngày');const o=offers.find(o=>o.id==id);o.status='scheduled';o.when=`${place}, ${t} ngày ${d.split('-').reverse().join('/')}`;closeM();mTab(0);openChatWith(o.from,`Mình chốt gặp ở ${o.when} nhé!`)}
+function rateO(id){stars=0;modal(`<h2 class="serif">Complete Swap</h2><p style="color:var(--wood)">Đánh giá uy tín sau khi đã đổi đồ ngoài thực tế</p><div id="st" style="margin:14px 0">${[1,2,3,4,5].map(n=>`<button class="sm" onclick="setStar(${n})">${n}</button> `).join('')}</div><textarea id="rv" rows="3" placeholder="Nhận xét của bạn..."></textarea><div style="margin-top:16px"><button class="pri" onclick="doneO(${id})">Hoàn tất</button></div>`)}
+function setStar(n){stars=n;document.querySelectorAll('#st button').forEach((b,i)=>b.classList.toggle('on',i<n))}
+function doneO(id){if(!stars)return toast('Chọn số sao từ 1 đến 5');offers.find(o=>o.id==id).status='done';closeM();mTab(0);toast('Cảm ơn bạn đã đánh giá '+stars+'/5 sao')}
+/* upload */
+let upImgs=[];
+function prevImgs(inp){upImgs=[];const fs=[...inp.files].slice(0,5);$('#pv').innerHTML='';fs.forEach(f=>{const r=new FileReader();r.onload=()=>{upImgs.push(r.result);$('#pv').insertAdjacentHTML('beforeend',`<img src="${r.result}" alt="">`)};r.readAsDataURL(f)})}
+function postItem(){const n=$('#u1').value.trim();if(!n)return toast('Nhập tên sản phẩm');const id=Date.now();items.unshift({id,name:n,cat:$('#u2').value,cond:$('#u3').value,desc:$('#u4').value,want:$('#u5').value,loc:$('#u6').value||'Cổng trường',owner:me.name,school:me.school,img:upImgs.length?upImgs:[ph(n,id%6)],mine:true,v:true});upImgs=[];toast('Đã đăng bài');go('manage');mTab(1)}
+/* search */
+const qi=$('#q');
+qi.oninput=()=>{const v=qi.value.trim().toLowerCase(),b=$('#sres');if(!v){b.style.display='none';return}const r=items.filter(i=>!i.mine&&(i.name+i.cat).toLowerCase().includes(v)).slice(0,6);b.innerHTML=r.map(i=>`<div onclick="detail(${i.id});b_hide()"><span>${i.name}</span><span class="m" style="color:var(--wood)">${i.school}</span></div>`).join('')||'<div>Không có kết quả</div>';b.style.display='block'};
+function b_hide(){$('#sres').style.display='none'}
+qi.onkeydown=e=>{if(e.key==='Enter'){F.q=qi.value.trim();deckI=0;mode='grid';b_hide();go('explore')}};
+document.addEventListener('click',e=>{if(!e.target.closest('.sb'))b_hide()});
+/* chat */
+let ctab=0,ctarget='',threads={'Hải Đăng':[['o','Chào bạn, mình vừa gửi offer cho áo len nhé!']],'Thu Hà':[['o','Áo khoác còn không bạn?']]},ai=[['o','Xin chào, mình là trợ lý SWAPDROBE. Bạn cần giúp gì?']];
+const QR=['Cách xác thực','Cách gửi offer','Địa điểm an toàn','Cách đăng đồ'];
+function toggleChat(){$('#chat').classList.toggle('s');if($('#chat').classList.contains('s'))renderChat()}
+function chatTab(n){ctab=n;if(n===0)ctarget='';else if(!ctarget)ctarget='Hải Đăng';renderChat()}
+function openChatWith(n,msg){$('#chat').classList.add('s');ctab=1;ctarget=n;closeM();if(msg){(threads[n]=threads[n]||[]).push(['m',msg])}renderChat()}
+function askChat(id){const i=byId(id);closeM();openChatWith(i.owner,`Mình muốn hỏi về "${i.name}" nhé.`)}
+function botMsg(n,t){(threads[n]=threads[n]||[]).push(['o',t]);if(ctab===1&&ctarget===n)renderChat()}
+function renderChat(){$('#t0').classList.toggle('on',ctab===0);$('#t1').classList.toggle('on',ctab===1);$('#chT').textContent=ctab?(ctarget||'Tin nhắn'):'Trợ lý SWAPDROBE';
+ let h='';if(ctab===1)h+=`<div class="chips">${Object.keys(threads).map(k=>`<span class="${k===ctarget?'on':''}" onclick="ctarget='${k}';renderChat()">${k}</span>`).join('')}</div>`;
+ const L=ctab?(threads[ctarget]||[]):ai;h+=L.map(m=>`<div class="m1 ${m[0]==='m'?'me':''}">${m[1]}</div>`).join('');$('#msgs').innerHTML=h;$('#msgs').scrollTop=1e5;$('#qr').innerHTML=ctab?'':QR.map(q=>`<span onclick="aiAsk('${q}')">${q}</span>`).join('')}
+function sendChat(){const v=$('#ci').value.trim();if(!v)return;$('#ci').value='';if(ctab===0)return aiAsk(v);(threads[ctarget]=threads[ctarget]||[]).push(['m',v]);renderChat();const n=ctarget;setTimeout(()=>botMsg(n,['Ok bạn nhé!','Mình rảnh chiều nay, bạn thì sao?','Để mình kiểm tra lại rồi báo bạn.'][Math.floor(Math.random()*3)]),900)}
+function aiAsk(q){ai.push(['m',q]);const s=q.toLowerCase();let a='Mình chưa rõ ý bạn. Bạn có thể hỏi về: xác thực, gửi offer, đăng đồ, địa điểm gặp, hoặc đánh giá.';
+ if(/xác thực|verify|otp|tích xanh|đăng ký/.test(s))a='Chọn trường, nhập email .edu.vn để nhận OTP, rồi gửi Mã SV, Họ tên, Trường. Sau khi duyệt bạn nhận Tích Xanh Sinh Viên và được đăng đồ, gửi offer.';
+ else if(/offer|đổi|swap/.test(s))a='Bấm Offer Swap trên món bạn thích, chọn 1–3 món của bạn, thêm lời nhắn rồi gửi. Người kia chấp nhận trong mục Swap của tôi.';
+ else if(/địa điểm|gặp|an toàn|meetup/.test(s))a='Nên gặp ở nơi công cộng gần trường: cổng trường, thư viện, sảnh KTX hoặc quán cafe, vào ban ngày. Kiểm tra đồ trước khi đổi.';
+ else if(/đăng|upload|ảnh/.test(s))a='Vào mục Đăng đồ: tải tối đa 5 ảnh, nhập tên, danh mục, tình trạng, mô tả ngắn và vị trí giao dịch. Món muốn đổi lại là không bắt buộc.';
+ else if(/đánh giá|rating|sao|uy tín/.test(s))a='Sau khi đổi xong, cả hai bấm Complete Swap rồi chấm 1–5 sao kèm nhận xét để xây dựng uy tín.';
+ else if(/giá|tiền|phí/.test(s))a='SWAPDROBE không dùng tiền: không cần định giá, hai bên tự thấy xứng đáng là đổi.';
+ else if(/xin chào|hello|hi/.test(s))a='Chào bạn! Bạn muốn tìm đồ hay đăng đồ hôm nay?';
+ renderChat();setTimeout(()=>{ai.push(['o',a]);if(ctab===0)renderChat()},500)}
+go('home');
+</script>
+</body>
+</html>
