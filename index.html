@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SWAPDROBE — Things Change Hands, Stories Live On</title>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--washi:#F3EFE5;--sumi:#292824;--moss:#6B705C;--matcha:#85866A;--clay:#A6785D;--wood:#8A735D;--rasp:#CD5782;--card:#FBF8F1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--washi:#F3EFE5;--sumi:#292824;--moss:#6B705C;--matcha:#85866A;--clay:#A6785D;--wood:#8A735D;--rasp:#CD5782;--card:#FBF8F1;--font:'M PLUS 1p','Noto Sans',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:var(--washi);color:var(--sumi);font:400 14px/1.6 'Noto Sans',system-ui,sans-serif;letter-spacing:.02em}
-h1,h2,h3,.serif{font-family:'Shippori Mincho',Georgia,serif;font-weight:400}
+body{background:var(--washi);color:var(--sumi);font:400 14px/1.7 var(--font);letter-spacing:.02em}
+h1,h2,h3,.serif{font-family:var(--font);font-weight:500}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;background:none;border:1px solid var(--sumi);padding:10px 20px;letter-spacing:.08em;text-transform:uppercase;font-size:12px;transition:.2s}
 button:hover{background:var(--sumi);color:var(--washi)}
@@ -25,7 +27,7 @@ label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase
 .top{background:var(--sumi);color:var(--washi);text-align:center;font-size:11px;letter-spacing:.15em;padding:6px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--washi);border-bottom:1px solid var(--wood)}
 .hd{display:flex;align-items:center;gap:24px;height:64px}
-.logo{font-family:'Shippori Mincho',serif;font-size:24px;letter-spacing:.2em;cursor:pointer}
+.logo{font-family:var(--font);font-weight:500;font-size:22px;letter-spacing:.22em;cursor:pointer}
 nav{display:flex;gap:20px}nav a{cursor:pointer;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:4px 0;border-bottom:1px solid transparent}
 nav a:hover,nav a.act{border-color:var(--sumi)}
 .sb{flex:1;position:relative}.sb input{border:none;border-bottom:1px solid var(--wood);background:transparent;padding:8px 2px}
@@ -33,14 +35,13 @@ nav a:hover,nav a.act{border-color:var(--sumi)}
 .sres div{padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;font-size:13px}.sres div:hover{background:var(--washi)}
 .who{font-size:12px;cursor:pointer;white-space:nowrap}
 .badge{display:inline-block;background:var(--moss);color:var(--washi);font-size:9px;letter-spacing:.1em;padding:1px 6px;text-transform:uppercase;vertical-align:middle}
-.badge.no{background:transparent;color:var(--wood);border:1px solid var(--wood)}
 .hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:480px;border-bottom:1px solid var(--wood)}
 .hero .l{padding:64px 24px 64px max(24px,calc((100vw - 1200px)/2 + 24px));display:flex;flex-direction:column;justify-content:center;gap:20px}
-.hero .r{background:var(--moss);position:relative;overflow:hidden}
+.hero .r{background:var(--moss) center/cover no-repeat;position:relative;overflow:hidden}
 .hero .r i{position:absolute;border:1px solid var(--washi);border-radius:50%;opacity:.5}
 section{padding:56px 0}
 .sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;border-bottom:1px solid var(--wood);padding-bottom:10px}
-.sh h2{font-size:26px}.sh a{cursor:pointer;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid}
+.sh h2{font-size:24px}.sh a{cursor:pointer;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid}
 .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .cat{border:1px solid var(--wood);padding:28px 12px;text-align:center;cursor:pointer;background:var(--card);transition:.2s}.cat:hover{background:var(--moss);color:var(--washi)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px 16px}
@@ -48,22 +49,22 @@ section{padding:56px 0}
 .it .n{margin-top:8px;font-size:14px}.it .m{font-size:12px;color:var(--wood)}
 .tag{font-size:11px;color:var(--moss);letter-spacing:.08em}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.steps div{border-top:1px solid var(--sumi);padding-top:12px}.steps b{font:400 32px 'Shippori Mincho',serif;color:var(--wood)}
+.steps div{border-top:1px solid var(--sumi);padding-top:12px}.steps b{font:300 34px var(--font);color:var(--wood)}
 .ex{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start}
 .fl{position:sticky;top:90px;border-right:1px solid var(--wood);padding-right:20px}
-.fl h3{font-size:16px;margin:18px 0 8px}.fl .opt{padding:4px 0;cursor:pointer;color:var(--wood)}.fl .opt.on{color:var(--sumi);border-left:2px solid var(--rasp);padding-left:8px}
+.fl h3{font-size:15px;margin:18px 0 8px}.fl .opt{padding:4px 0;cursor:pointer;color:var(--wood)}.fl .opt.on{color:var(--sumi);border-left:2px solid var(--rasp);padding-left:8px}
 .deckw{display:flex;flex-direction:column;align-items:center;gap:20px}
 .deck{position:relative;width:min(380px,100%);height:560px;touch-action:pan-y}
 .sc{position:absolute;inset:0;background:var(--card);border:1px solid var(--wood);display:flex;flex-direction:column;user-select:none;transition:transform .25s}
-.sc img{width:100%;height:340px;object-fit:cover;display:block;pointer-events:none}
+.sc img{width:100%;height:340px;object-fit:cover;display:block;pointer-events:none;background:var(--card)}
 .sc .bd{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:4px}
-.sc h3{font-size:22px}.sc.b2{transform:scale(.96) translateY(14px);z-index:0}.sc.b1{z-index:1}
+.sc h3{font-size:20px}.sc.b2{transform:scale(.96) translateY(14px);z-index:0}.sc.b1{z-index:1}
 .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.acts .off{flex:1}
 .pill{display:inline-block;border:1px solid var(--wood);padding:2px 10px;font-size:11px;margin-right:4px}
 .ov{position:fixed;inset:0;background:rgba(41,40,36,.55);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
 .ov.s{display:flex}
 .md{background:var(--washi);border:1px solid var(--sumi);max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:28px}
-.md h2{font-size:24px;margin-bottom:6px}
+.md h2{font-size:22px;margin-bottom:6px}
 .pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin:10px 0}
 .pick div{border:1px solid var(--wood);cursor:pointer;font-size:12px;padding-bottom:6px}.pick div.on{outline:2px solid var(--rasp)}.pick img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.pick span{padding:0 6px}
 .chips span{display:inline-block;border:1px solid var(--wood);padding:6px 12px;margin:0 6px 6px 0;cursor:pointer;font-size:13px}.chips span.on{background:var(--moss);color:var(--washi)}
@@ -111,25 +112,77 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 </div>
 
 <script>
+/* ============ CẤU HÌNH ẢNH TỰ ĐỘNG ============
+   provider: 'pexels' hoặc 'unsplash'
+   key: dán API key của bạn vào đây
+   - Pexels:   https://www.pexels.com/api/
+   - Unsplash: https://unsplash.com/developers  (dùng Access Key)
+   Để trống key thì web dùng ảnh mẫu thay thế. */
+const IMG_CFG={provider:'pexels',key:''};
+
 const $=s=>document.querySelector(s);
 const CATS=['Sách vở/Giáo trình','Đồ điện tử','Quần áo/Phụ kiện','Đồ dùng KTX','Khác'];
+const CATQ={'Sách vở/Giáo trình':'textbook','Đồ điện tử':'electronics gadget','Quần áo/Phụ kiện':'clothes fashion','Đồ dùng KTX':'dorm room','Khác':'second hand items'};
 const SCHOOLS=['ĐH Bách Khoa','ĐH Quốc Gia','ĐH Ngoại Thương','ĐH Kinh Tế Quốc Dân','ĐH FPT','ĐH Sư Phạm'];
 const PAL=[['#6B705C','#F3EFE5'],['#A6785D','#F3EFE5'],['#85866A','#292824'],['#8A735D','#F3EFE5'],['#D9D2BF','#292824'],['#4d5143','#F3EFE5']];
-const ph=(t,i)=>{const [a,b]=PAL[i%PAL.length];return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="${a}"/><circle cx="220" cy="90" r="60" fill="none" stroke="${b}" opacity=".35"/><rect x="40" y="250" width="220" height="1" fill="${b}" opacity=".5"/><text x="40" y="290" font-family="Georgia,serif" font-size="22" fill="${b}">${t.slice(0,22)}</text><text x="40" y="318" font-family="sans-serif" font-size="11" fill="${b}" opacity=".7">ảnh mẫu — người đăng tải ảnh thật</text></svg>`)};
+const ph=(t,i)=>{const [a,b]=PAL[i%PAL.length];return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="${a}"/><circle cx="220" cy="90" r="60" fill="none" stroke="${b}" opacity=".35"/><rect x="40" y="250" width="220" height="1" fill="${b}" opacity=".5"/><text x="40" y="290" font-family="sans-serif" font-size="20" fill="${b}">${t.slice(0,24)}</text></svg>`)};
+
+/* ---------- Lấy ảnh qua API ---------- */
+const imgCache={};
+function searchImgs(q){
+  if(imgCache[q])return imgCache[q];
+  imgCache[q]=(async()=>{
+    if(!IMG_CFG.key)return [];
+    try{
+      let url,opt={};
+      if(IMG_CFG.provider==='pexels'){
+        url=`https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=8&orientation=portrait`;
+        opt={headers:{Authorization:IMG_CFG.key}};
+      }else{
+        url=`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&per_page=8&orientation=portrait&client_id=${IMG_CFG.key}`;
+      }
+      const r=await fetch(url,opt);
+      if(!r.ok)throw new Error(r.status);
+      const d=await r.json();
+      return IMG_CFG.provider==='pexels'?d.photos.map(p=>p.src.large):d.results.map(p=>p.urls.regular);
+    }catch(e){console.warn('Image API lỗi cho "'+q+'":',e);return []}
+  })();
+  return imgCache[q];
+}
+let heroImg='';
+function applyHero(){const e=$('#heroR');if(e&&heroImg)e.style.backgroundImage=`linear-gradient(rgba(107,112,92,.5),rgba(107,112,92,.5)),url(${heroImg})`}
+async function loadImages(){
+  const qs=[...new Set(items.map(i=>i.q).filter(Boolean))];
+  await Promise.all(qs.map(searchImgs));
+  const count={};
+  for(const it of items){
+    if(!it.q)continue;
+    const n=count[it.q]=(count[it.q]??-1)+1;
+    if(it.loaded)continue;
+    const list=await searchImgs(it.q);
+    if(!list.length)continue;
+    it.img=[list[n%list.length]];it.loaded=true;
+    document.querySelectorAll(`img[data-id="${it.id}"]`).forEach(e=>e.src=it.img[0]);
+  }
+  const h=await searchImgs('minimal nature japanese garden');
+  if(h.length){heroImg=h[0];applyHero()}
+}
+
+/* ---------- Dữ liệu ---------- */
 let items=[
-['Giải tích 1 — Nguyễn Đình Trí','Sách vở/Giáo trình','Mới 90%','Minh Anh','ĐH Bách Khoa','KTX Khu A','Quạt mini, đèn bàn'],
-['Quạt tích điện mini','Đồ dùng KTX','Mới 95%','Hải Đăng','ĐH Quốc Gia','Thư viện trung tâm','Sách tiếng Anh'],
-['Áo khoác denim UNIQLO size M','Quần áo/Phụ kiện','Mới 90%','Thu Hà','ĐH Ngoại Thương','Cổng trường','Áo len'],
-['Bàn phím cơ 87 phím','Đồ điện tử','Mới 85%','Quốc Bảo','ĐH FPT','Cơ sở 1','Chuột không dây'],
-['Đèn bàn LED kẹp','Đồ dùng KTX','Mới 95%','Lan Phương','ĐH Kinh Tế Quốc Dân','KTX Khu B','Giáo trình Kinh tế vi mô'],
-['Kinh tế vi mô — Mankiw','Sách vở/Giáo trình','Mới 80%','Gia Huy','ĐH Kinh Tế Quốc Dân','Thư viện','Đồ dùng KTX'],
-['Tai nghe chụp tai','Đồ điện tử','Mới 90%','Khánh Linh','ĐH Sư Phạm','Cổng trường','Sách văn học'],
-['Túi tote vải canvas','Quần áo/Phụ kiện','Mới 95%','Bảo Châu','ĐH Bách Khoa','Cơ sở 2','Sổ tay'],
-['Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Tuấn Kiệt','ĐH Quốc Gia','KTX Khu A','Ấm siêu tốc'],
-['Máy tính Casio fx-580','Đồ điện tử','Mới 90%','Mai Chi','ĐH Ngoại Thương','Thư viện','Sách ngoại ngữ']
-].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cond:a[2],owner:a[3],school:a[4],loc:a[5],want:a[6],img:[ph(a[0],i)],v:true,mine:false}));
-let me={name:'Bạn',school:'',email:'',status:'none',sid:''}; // none | pending | verified
-let mine=[['Truyện Totto-chan','Sách vở/Giáo trình','Mới 90%'],['Áo len cổ lọ','Quần áo/Phụ kiện','Mới 95%'],['Ổ cắm điện đa năng','Đồ dùng KTX','Mới 90%']].map((a,i)=>({id:100+i,name:a[0],cat:a[1],cond:a[2],owner:'Bạn',school:'Của bạn',loc:'KTX Khu A',want:'',img:[ph(a[0],i+3)],mine:true,v:true}));
+['Giải tích 1 — Nguyễn Đình Trí','Sách vở/Giáo trình','Mới 90%','Minh Anh','ĐH Bách Khoa','KTX Khu A','Quạt mini, đèn bàn','mathematics textbook'],
+['Quạt tích điện mini','Đồ dùng KTX','Mới 95%','Hải Đăng','ĐH Quốc Gia','Thư viện trung tâm','Sách tiếng Anh','portable mini fan'],
+['Áo khoác denim UNIQLO size M','Quần áo/Phụ kiện','Mới 90%','Thu Hà','ĐH Ngoại Thương','Cổng trường','Áo len','denim jacket'],
+['Bàn phím cơ 87 phím','Đồ điện tử','Mới 85%','Quốc Bảo','ĐH FPT','Cơ sở 1','Chuột không dây','mechanical keyboard'],
+['Đèn bàn LED kẹp','Đồ dùng KTX','Mới 95%','Lan Phương','ĐH Kinh Tế Quốc Dân','KTX Khu B','Giáo trình Kinh tế vi mô','desk lamp'],
+['Kinh tế vi mô — Mankiw','Sách vở/Giáo trình','Mới 80%','Gia Huy','ĐH Kinh Tế Quốc Dân','Thư viện','Đồ dùng KTX','economics book'],
+['Tai nghe chụp tai','Đồ điện tử','Mới 90%','Khánh Linh','ĐH Sư Phạm','Cổng trường','Sách văn học','over ear headphones'],
+['Túi tote vải canvas','Quần áo/Phụ kiện','Mới 95%','Bảo Châu','ĐH Bách Khoa','Cơ sở 2','Sổ tay','canvas tote bag'],
+['Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Tuấn Kiệt','ĐH Quốc Gia','KTX Khu A','Ấm siêu tốc','mini rice cooker'],
+['Máy tính Casio fx-580','Đồ điện tử','Mới 90%','Mai Chi','ĐH Ngoại Thương','Thư viện','Sách ngoại ngữ','scientific calculator']
+].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cond:a[2],owner:a[3],school:a[4],loc:a[5],want:a[6],q:a[7],img:[ph(a[0],i)],v:true,mine:false}));
+let me={name:'Bạn',school:'',email:'',status:'none',sid:''};
+let mine=[['Truyện Totto-chan','Sách vở/Giáo trình','Mới 90%','children book'],['Áo len cổ lọ','Quần áo/Phụ kiện','Mới 95%','knit sweater'],['Ổ cắm điện đa năng','Đồ dùng KTX','Mới 90%','power strip']].map((a,i)=>({id:100+i,name:a[0],cat:a[1],cond:a[2],q:a[3],owner:'Bạn',school:'Của bạn',loc:'KTX Khu A',want:'',img:[ph(a[0],i+3)],mine:true,v:true}));
 items=items.concat(mine);
 let saved=new Set(),F={school:'',cat:'',q:''},mode='deck',deckI=0,vw='home';
 let offers=[{id:1,target:101,from:'Hải Đăng',school:'ĐH Quốc Gia',give:[2],msg:'Mình muốn đổi cái quạt KTX lấy áo len của bạn nhé!',status:'pending',when:''}];
@@ -138,11 +191,11 @@ const byId=id=>items.find(x=>x.id==id);
 const bd=u=>u.v?'<span class="badge">Tích xanh SV</span>':'';
 function toast(t){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2400)}
 function who(){$('#who').innerHTML=me.status==='verified'?`${me.name} <span class="badge">Verified</span>`:me.status==='pending'?'Đang chờ duyệt':'Đăng nhập / Đăng ký'}
-function go(v,x){vw=v;document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('act',a.dataset.v===v));window.scrollTo(0,0);$('#app').innerHTML=V[v](x);who();if(v==='explore')bindDeck()}
+function go(v,x){vw=v;document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('act',a.dataset.v===v));window.scrollTo(0,0);$('#app').innerHTML=V[v](x);who();if(v==='explore')bindDeck();if(v==='home')applyHero()}
 function filt(){return items.filter(i=>!i.mine&&(!F.school||i.school===F.school)&&(!F.cat||i.cat===F.cat)&&(!F.q||(i.name+i.cat+i.school+i.loc).toLowerCase().includes(F.q.toLowerCase())))}
-function tile(i){return `<div class="it" onclick="detail(${i.id})"><img src="${i.img[0]}" alt="${i.name}"><div class="n">${i.name}</div><div class="m">${i.cond} · ${i.owner} ${i.v?'<span class="badge">SV</span>':''}</div><div class="m">${i.school}</div></div>`}
+function tile(i){return `<div class="it" onclick="detail(${i.id})"><img data-id="${i.id}" src="${i.img[0]}" alt="${i.name}"><div class="n">${i.name}</div><div class="m">${i.cond} · ${i.owner} ${i.v?'<span class="badge">SV</span>':''}</div><div class="m">${i.school}</div></div>`}
 const V={
-home:()=>`<div class="hero"><div class="l"><span class="tag">SINH VIÊN ĐỔI ĐỒ — KHÔNG DÙNG TIỀN</span><p class="serif" style="max-width:460px;color:var(--sumi);font-size:22px;line-height:1.7">Đổi sách, quần áo, đồ KTX với sinh viên cùng trường. Không cần định giá — chỉ cần hai người cùng thấy món đồ ấy xứng đáng.</p><div><button class="pri" onclick="go('explore')">Bắt đầu lướt</button> <button onclick="go('join')">Xác thực sinh viên</button></div></div><div class="r"><i style="width:340px;height:340px;right:-60px;top:-60px"></i><i style="width:200px;height:200px;left:40px;bottom:50px"></i></div></div>
+home:()=>`<div class="hero"><div class="l"><span class="tag">SINH VIÊN ĐỔI ĐỒ — KHÔNG DÙNG TIỀN</span><p class="serif" style="max-width:460px;color:var(--sumi);font-size:22px;line-height:1.8;font-weight:300">Đổi sách, quần áo, đồ KTX với sinh viên cùng trường. Không cần định giá — chỉ cần hai người cùng thấy món đồ ấy xứng đáng.</p><div><button class="pri" onclick="go('explore')">Bắt đầu lướt</button> <button onclick="go('join')">Xác thực sinh viên</button></div></div><div class="r" id="heroR"><i style="width:340px;height:340px;right:-60px;top:-60px"></i><i style="width:200px;height:200px;left:40px;bottom:50px"></i></div></div>
 <div class="wrap"><section><div class="sh"><h2>Danh mục</h2></div><div class="cats">${CATS.map(c=>`<div class="cat serif" onclick="F.cat='${c}';go('explore')">${c}</div>`).join('')}</div></section>
 <section style="padding-top:0"><div class="sh"><h2>Mới đăng gần đây</h2><a onclick="go('explore')">Xem tất cả</a></div><div class="grid">${items.filter(i=>!i.mine).slice(0,8).map(tile).join('')}</div></section>
 <section><div class="sh"><h2>Cách hoạt động</h2></div><div class="steps"><div><b>01</b><h3>Xác thực</h3><p>Email .edu.vn, OTP, kiểm tra Mã SV — nhận tích xanh.</p></div><div><b>02</b><h3>Đăng đồ</h3><p>Tối đa 5 ảnh, mô tả ngắn, gợi ý món muốn đổi.</p></div><div><b>03</b><h3>Gửi Offer</h3><p>Chọn 1–3 món của bạn để đổi lấy món bạn thích.</p></div><div><b>04</b><h3>Hẹn &amp; đổi</h3><p>Chọn địa điểm an toàn, gặp nhau, đánh giá uy tín.</p></div></div></section>
@@ -151,16 +204,16 @@ explore:()=>{const r=filt();return `<div class="wrap" style="padding-top:32px"><
 <div class="ex"><div class="fl"><h3>Trường / khu vực</h3><div class="opt ${!F.school?'on':''}" onclick="F.school='';go('explore')">Tất cả</div>${SCHOOLS.map(s=>`<div class="opt ${F.school===s?'on':''}" onclick="F.school='${s}';deckI=0;go('explore')">${s}</div>`).join('')}<h3>Danh mục</h3><div class="opt ${!F.cat?'on':''}" onclick="F.cat='';go('explore')">Tất cả</div>${CATS.map(s=>`<div class="opt ${F.cat===s?'on':''}" onclick="F.cat='${s}';deckI=0;go('explore')">${s}</div>`).join('')}</div>
 <div>${!r.length?'<p>Không tìm thấy món nào. Thử bỏ bớt bộ lọc.</p>':mode==='grid'?`<div class="grid">${r.map(tile).join('')}</div>`:deckHTML(r)}</div></div></div>`},
 upload:()=>me.status!=='verified'?gate('Đăng đồ'):`<div class="wrap" style="max-width:720px;padding:40px 24px"><div class="sh"><h2>Đăng đồ mới</h2></div>
-<div class="drop" onclick="$('#fi').click()">Chọn tối đa 5 ảnh<br><small style="color:var(--wood)">JPG / PNG</small></div><input type="file" id="fi" accept="image/*" multiple hidden onchange="prevImgs(this)"><div class="prev" id="pv"></div>
+<div class="drop" onclick="$('#fi').click()">Chọn tối đa 5 ảnh<br><small style="color:var(--wood)">JPG / PNG — nếu không tải ảnh, hệ thống tự lấy ảnh minh họa theo danh mục</small></div><input type="file" id="fi" accept="image/*" multiple hidden onchange="prevImgs(this)"><div class="prev" id="pv"></div>
 <label>Tên sản phẩm</label><input id="u1" placeholder="VD: Giáo trình Vật lý đại cương">
 <div class="two"><div><label>Danh mục</label><select id="u2">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></div><div><label>Tình trạng</label><select id="u3">${['Mới 100%','Mới 95%','Mới 90%','Mới 85%','Mới 80%'].map(c=>`<option>${c}</option>`).join('')}</select></div></div>
 <label>Mô tả ngắn</label><textarea id="u4" rows="3"></textarea><label>Món đồ mong muốn đổi lại (không bắt buộc)</label><input id="u5"><label>Vị trí tiện giao dịch</label><input id="u6" placeholder="VD: KTX Khu A, Cơ sở 1">
 <div style="margin-top:20px"><button class="pri" onclick="postItem()">Đăng bài</button></div></div>`,
 manage:()=>me.status!=='verified'?gate('Swap của tôi'):`<div class="wrap" style="padding:40px 24px"><div class="sh"><h2>Swap Management</h2></div><div class="tabs"><button class="sm on" id="mt0" onclick="mTab(0)">Offer nhận được</button><button class="sm" id="mt1" onclick="mTab(1)">Đồ của tôi</button><button class="sm" id="mt2" onclick="mTab(2)">Đã lưu</button></div><div id="mb">${offerList()}</div></div>`,
 join:()=>`<div class="wrap" style="max-width:560px;padding:40px 24px"><div class="sh"><h2>Xác thực sinh viên</h2></div><div id="jn">${joinStep()}</div></div>`,
-about:()=>`<div class="wrap" style="max-width:720px;padding:56px 24px"><h2 class="serif" style="font-size:34px;margin-bottom:16px">Things Change Hands, Stories Live On.</h2><p style="margin-bottom:12px">SWAPDROBE lấy cảm hứng từ wabi-sabi: vẻ đẹp của món đồ đã được dùng và trân trọng. Ở đây không có giá — một cuốn giáo trình có thể đổi lấy một chiếc quạt, nếu cả hai đều thấy xứng đáng.</p><p>An toàn: chỉ sinh viên đã xác thực mới được đăng và gửi offer, gặp nhau ở địa điểm công cộng gần trường, và mọi giao dịch đều có đánh giá uy tín.</p></div>`
+about:()=>`<div class="wrap" style="max-width:720px;padding:56px 24px"><h2 class="serif" style="font-size:32px;margin-bottom:16px">Things Change Hands, Stories Live On.</h2><p style="margin-bottom:12px">SWAPDROBE lấy cảm hứng từ wabi-sabi: vẻ đẹp của món đồ đã được dùng và trân trọng. Ở đây không có giá — một cuốn giáo trình có thể đổi lấy một chiếc quạt, nếu cả hai đều thấy xứng đáng.</p><p>An toàn: chỉ sinh viên đã xác thực mới được đăng và gửi offer, gặp nhau ở địa điểm công cộng gần trường, và mọi giao dịch đều có đánh giá uy tín.</p></div>`
 };
-function gate(t){return `<div class="wrap" style="max-width:560px;padding:80px 24px;text-align:center"><h2 class="serif" style="font-size:28px;margin-bottom:10px">${t} cần tài khoản đã xác thực</h2><p style="color:var(--wood);margin-bottom:20px">Hoàn tất xác thực sinh viên để nhận tích xanh.</p><button class="pri" onclick="go('join')">Xác thực ngay</button></div>`}
+function gate(t){return `<div class="wrap" style="max-width:560px;padding:80px 24px;text-align:center"><h2 class="serif" style="font-size:26px;margin-bottom:10px">${t} cần tài khoản đã xác thực</h2><p style="color:var(--wood);margin-bottom:20px">Hoàn tất xác thực sinh viên để nhận tích xanh.</p><button class="pri" onclick="go('join')">Xác thực ngay</button></div>`}
 /* join flow */
 let jst=0;
 function joinStep(){
@@ -176,23 +229,23 @@ function submitSV(){const n=$('#j4').value.trim(),m=$('#j5').value.trim();if(!n|
 function finishVerify(){me.status='verified';mine_update();toast('Đã xác thực — bạn nhận được Tích Xanh Sinh Viên');go('join')}
 function mine_update(){items.filter(i=>i.mine).forEach(i=>{i.owner=me.name;i.school=me.school})}
 /* deck */
-function deckHTML(r){if(deckI>=r.length)return `<div style="text-align:center;padding:60px 0"><h3 class="serif" style="font-size:24px">Bạn đã xem hết rồi</h3><br><button onclick="deckI=0;go('explore')">Xem lại từ đầu</button></div>`;
+function deckHTML(r){if(deckI>=r.length)return `<div style="text-align:center;padding:60px 0"><h3 class="serif" style="font-size:22px">Bạn đã xem hết rồi</h3><br><button onclick="deckI=0;go('explore')">Xem lại từ đầu</button></div>`;
  const c=r[deckI],n=r[deckI+1];
- return `<div class="deckw"><div class="deck">${n?`<div class="sc b2"><img src="${n.img[0]}" alt=""></div>`:''}<div class="sc b1" id="topc" data-id="${c.id}"><img src="${c.img[0]}" alt="${c.name}"><div class="bd"><span class="tag">${c.cat}</span><h3 class="serif">${c.name}</h3><div><span class="pill">${c.cond}</span><span class="pill">${c.loc}</span></div><div>${c.owner} ${bd(c)}</div><div class="m" style="color:var(--wood)">${c.school}</div>${c.want?`<div style="font-size:12px;color:var(--moss)">Muốn đổi: ${c.want}</div>`:''}
+ return `<div class="deckw"><div class="deck">${n?`<div class="sc b2"><img data-id="${n.id}" src="${n.img[0]}" alt=""></div>`:''}<div class="sc b1" id="topc" data-id="${c.id}"><img data-id="${c.id}" src="${c.img[0]}" alt="${c.name}"><div class="bd"><span class="tag">${c.cat}</span><h3 class="serif">${c.name}</h3><div><span class="pill">${c.cond}</span><span class="pill">${c.loc}</span></div><div>${c.owner} ${bd(c)}</div><div style="font-size:12px;color:var(--wood)">${c.school}</div>${c.want?`<div style="font-size:12px;color:var(--moss)">Muốn đổi: ${c.want}</div>`:''}
  <div class="acts"><button class="sm" onclick="event.stopPropagation();toggleSave(${c.id})">${saved.has(c.id)?'Đã lưu':'Lưu'}</button><button class="sm off" onclick="event.stopPropagation();offerOpen(${c.id})">Offer Swap</button><button class="sm" onclick="event.stopPropagation();askChat(${c.id})">Hỏi nhanh</button></div></div></div></div>
  <div><button class="sm" onclick="swipe(-1)">Bỏ qua</button> <button class="sm" onclick="detail(${c.id})">Chi tiết</button> <button class="sm" onclick="swipe(1)">Lưu &amp; tiếp</button></div><small style="color:var(--wood)">Kéo thẻ sang trái để bỏ qua, sang phải để lưu</small></div>`}
 function bindDeck(){const e=$('#topc');if(!e)return;let sx=0,dx=0,d=false;e.onpointerdown=ev=>{d=true;sx=ev.clientX;e.style.transition='none';e.setPointerCapture(ev.pointerId)};e.onpointermove=ev=>{if(!d)return;dx=ev.clientX-sx;e.style.transform=`translateX(${dx}px) rotate(${dx/25}deg)`};e.onpointerup=()=>{d=false;e.style.transition='';if(dx>110)swipe(1);else if(dx<-110)swipe(-1);else e.style.transform='';dx=0}}
 function swipe(dir){const r=filt();if(dir>0&&r[deckI]){saved.add(r[deckI].id);toast('Đã lưu')}deckI++;go('explore')}
 function toggleSave(id){saved.has(id)?saved.delete(id):saved.add(id);toast(saved.has(id)?'Đã lưu':'Đã bỏ lưu');if(vw==='explore')go('explore')}
 /* detail */
-function detail(id){const i=byId(id);modal(`<h2 class="serif">${i.name}</h2><img src="${i.img[0]}" style="width:100%;max-height:320px;object-fit:cover;margin:10px 0" alt="${i.name}"><p><span class="pill">${i.cat}</span><span class="pill">${i.cond}</span><span class="pill">${i.loc}</span></p><p style="margin-top:8px">${i.owner} ${bd(i)} — ${i.school}</p>${i.desc?`<p>${i.desc}</p>`:''}${i.want?`<p style="color:var(--moss)">Muốn đổi lại: ${i.want}</p>`:''}<div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">${i.mine?'':`<button class="off" onclick="offerOpen(${i.id})">Offer Swap</button><button onclick="askChat(${i.id})">Hỏi nhanh</button><button onclick="toggleSave(${i.id})">Lưu</button>`}<button onclick="closeM()">Đóng</button></div>`)}
+function detail(id){const i=byId(id);modal(`<h2 class="serif">${i.name}</h2><img data-id="${i.id}" src="${i.img[0]}" style="width:100%;max-height:320px;object-fit:cover;margin:10px 0" alt="${i.name}"><p><span class="pill">${i.cat}</span><span class="pill">${i.cond}</span><span class="pill">${i.loc}</span></p><p style="margin-top:8px">${i.owner} ${bd(i)} — ${i.school}</p>${i.desc?`<p>${i.desc}</p>`:''}${i.want?`<p style="color:var(--moss)">Muốn đổi lại: ${i.want}</p>`:''}<div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">${i.mine?'':`<button class="off" onclick="offerOpen(${i.id})">Offer Swap</button><button onclick="askChat(${i.id})">Hỏi nhanh</button><button onclick="toggleSave(${i.id})">Lưu</button>`}<button onclick="closeM()">Đóng</button></div>`)}
 function modal(h){$('#md').innerHTML=h;$('#ov').classList.add('s')}
 function closeM(){$('#ov').classList.remove('s')}
 $('#ov').onclick=e=>{if(e.target.id==='ov')closeM()};
 /* offer flow */
 function offerOpen(id){if(me.status!=='verified'){closeM();toast('Cần xác thực sinh viên để gửi offer');return go('join')}
  offerFor=id;offerSel=new Set();const t=byId(id),my=items.filter(i=>i.mine);
- modal(`<h2 class="serif">Offer Swap</h2><p style="color:var(--wood)">Bạn muốn đổi lấy: <b>${t.name}</b> của ${t.owner}</p><label>Chọn 1–3 món của bạn</label><div class="pick">${my.map(i=>`<div id="p${i.id}" onclick="pickO(${i.id})"><img src="${i.img[0]}" alt=""><span>${i.name}</span></div>`).join('')}</div><label>Lời nhắn (tùy chọn)</label><textarea id="om" rows="2" placeholder="Mình muốn đổi cuốn sách này lấy cái quạt KTX của bạn nhé!"></textarea><div style="margin-top:16px;display:flex;gap:8px"><button class="off" onclick="sendOffer()">Gửi offer</button><button onclick="closeM()">Hủy</button></div>`)}
+ modal(`<h2 class="serif">Offer Swap</h2><p style="color:var(--wood)">Bạn muốn đổi lấy: <b>${t.name}</b> của ${t.owner}</p><label>Chọn 1–3 món của bạn</label><div class="pick">${my.map(i=>`<div id="p${i.id}" onclick="pickO(${i.id})"><img data-id="${i.id}" src="${i.img[0]}" alt=""><span>${i.name}</span></div>`).join('')}</div><label>Lời nhắn (tùy chọn)</label><textarea id="om" rows="2" placeholder="Mình muốn đổi cuốn sách này lấy cái quạt KTX của bạn nhé!"></textarea><div style="margin-top:16px;display:flex;gap:8px"><button class="off" onclick="sendOffer()">Gửi offer</button><button onclick="closeM()">Hủy</button></div>`)}
 function pickO(id){if(offerSel.has(id))offerSel.delete(id);else{if(offerSel.size>=3)return toast('Tối đa 3 món');offerSel.add(id)}$('#p'+id).classList.toggle('on',offerSel.has(id))}
 function sendOffer(){if(!offerSel.size)return toast('Hãy chọn ít nhất 1 món');const t=byId(offerFor);toast('Đã gửi offer tới '+t.owner);closeM();botMsg(t.owner,'Cảm ơn bạn đã gửi offer, để mình xem nhé!')}
 /* manage */
@@ -213,10 +266,12 @@ function doneO(id){if(!stars)return toast('Chọn số sao từ 1 đến 5');off
 /* upload */
 let upImgs=[];
 function prevImgs(inp){upImgs=[];const fs=[...inp.files].slice(0,5);$('#pv').innerHTML='';fs.forEach(f=>{const r=new FileReader();r.onload=()=>{upImgs.push(r.result);$('#pv').insertAdjacentHTML('beforeend',`<img src="${r.result}" alt="">`)};r.readAsDataURL(f)})}
-function postItem(){const n=$('#u1').value.trim();if(!n)return toast('Nhập tên sản phẩm');const id=Date.now();items.unshift({id,name:n,cat:$('#u2').value,cond:$('#u3').value,desc:$('#u4').value,want:$('#u5').value,loc:$('#u6').value||'Cổng trường',owner:me.name,school:me.school,img:upImgs.length?upImgs:[ph(n,id%6)],mine:true,v:true});upImgs=[];toast('Đã đăng bài');go('manage');mTab(1)}
+function postItem(){const n=$('#u1').value.trim();if(!n)return toast('Nhập tên sản phẩm');const id=Date.now(),cat=$('#u2').value;
+ items.unshift({id,name:n,cat,cond:$('#u3').value,desc:$('#u4').value,want:$('#u5').value,loc:$('#u6').value||'Cổng trường',owner:me.name,school:me.school,img:upImgs.length?upImgs:[ph(n,id%6)],q:upImgs.length?'':CATQ[cat],mine:true,v:true});
+ upImgs=[];toast('Đã đăng bài');go('manage');mTab(1);loadImages()}
 /* search */
 const qi=$('#q');
-qi.oninput=()=>{const v=qi.value.trim().toLowerCase(),b=$('#sres');if(!v){b.style.display='none';return}const r=items.filter(i=>!i.mine&&(i.name+i.cat).toLowerCase().includes(v)).slice(0,6);b.innerHTML=r.map(i=>`<div onclick="detail(${i.id});b_hide()"><span>${i.name}</span><span class="m" style="color:var(--wood)">${i.school}</span></div>`).join('')||'<div>Không có kết quả</div>';b.style.display='block'};
+qi.oninput=()=>{const v=qi.value.trim().toLowerCase(),b=$('#sres');if(!v){b.style.display='none';return}const r=items.filter(i=>!i.mine&&(i.name+i.cat).toLowerCase().includes(v)).slice(0,6);b.innerHTML=r.map(i=>`<div onclick="detail(${i.id});b_hide()"><span>${i.name}</span><span style="color:var(--wood)">${i.school}</span></div>`).join('')||'<div>Không có kết quả</div>';b.style.display='block'};
 function b_hide(){$('#sres').style.display='none'}
 qi.onkeydown=e=>{if(e.key==='Enter'){F.q=qi.value.trim();deckI=0;mode='grid';b_hide();go('explore')}};
 document.addEventListener('click',e=>{if(!e.target.closest('.sb'))b_hide()});
@@ -242,6 +297,7 @@ function aiAsk(q){ai.push(['m',q]);const s=q.toLowerCase();let a='Mình chưa r�
  else if(/xin chào|hello|hi/.test(s))a='Chào bạn! Bạn muốn tìm đồ hay đăng đồ hôm nay?';
  renderChat();setTimeout(()=>{ai.push(['o',a]);if(ctab===0)renderChat()},500)}
 go('home');
+loadImages();
 </script>
 </body>
 </html>
