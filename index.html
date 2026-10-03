@@ -112,89 +112,27 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 </div>
 
 <script>
-/* ============ DÁN API KEY Ở ĐÂY (để trống nguồn nào cũng được) ============
-   Pexels:   https://www.pexels.com/api/            (khuyên dùng, ảnh đẹp)
-   Unsplash: https://unsplash.com/developers        (dùng Access Key)
-   Pixabay:  https://pixabay.com/api/docs/
-   Không có key: web vẫn tự tìm ảnh qua Openverse / Wikimedia / Wikipedia.     */
-const IMG_KEYS={pexels:'',unsplash:'',pixabay:''};
-
 const $=s=>document.querySelector(s);
 const CATS=['Sách vở/Giáo trình','Đồ điện tử','Quần áo/Phụ kiện','Đồ dùng KTX','Khác'];
 const SCHOOLS=['ĐH Bách Khoa','ĐH Quốc Gia','ĐH Ngoại Thương','ĐH Kinh Tế Quốc Dân','ĐH FPT','ĐH Sư Phạm'];
 const PAL=[['#6B705C','#F3EFE5'],['#A6785D','#F3EFE5'],['#85866A','#292824'],['#8A735D','#F3EFE5'],['#D9D2BF','#292824'],['#4d5143','#F3EFE5']];
 const ph=(t,i)=>{const [a,b]=PAL[Math.abs(i)%PAL.length];return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="${a}"/><circle cx="220" cy="90" r="60" fill="none" stroke="${b}" opacity=".35"/><rect x="40" y="250" width="220" height="1" fill="${b}" opacity=".5"/><text x="40" y="290" font-family="sans-serif" font-size="20" fill="${b}">${t.slice(0,24)}</text></svg>`)};
 
-/* ================= HỆ THỐNG ẢNH TỰ ĐỘNG =================
-   Mỗi món có thể có:  pin = link ảnh cố định (ưu tiên cao nhất)
-                       q   = từ khóa tiếng Anh tìm ảnh stock
-                       c   = danh sách danh mục Wikimedia Commons
-                       t   = danh sách tên bài Wikipedia
-                       pick= số thứ tự ảnh muốn lấy trong kết quả (0,1,2...)       */
-const CATW={'Sách vở/Giáo trình':['Textbook'],'Đồ điện tử':['Consumer electronics'],'Quần áo/Phụ kiện':['Clothing'],'Đồ dùng KTX':['Dormitory'],'Khác':['Household goods']};
-const VI2W=[[/giáo trình|sách giáo khoa/i,['Textbook']],[/truyện|tiểu thuyết/i,['Novel']],[/sách/i,['Book']],[/quạt/i,['Handheld fan','Fan (machine)']],[/áo khoác/i,['Denim jacket','Jacket']],[/áo len|len/i,['Sweater']],[/áo sơ mi/i,['Dress shirt']],[/áo thun|áo phông/i,['T-shirt']],[/áo/i,['Shirt']],[/quần jean|quần bò/i,['Jeans']],[/quần/i,['Trousers']],[/váy/i,['Dress']],[/giày/i,['Shoe']],[/dép/i,['Sandal']],[/balo|ba lô/i,['Backpack']],[/túi/i,['Tote bag','Handbag']],[/bàn phím/i,['Computer keyboard']],[/chuột/i,['Computer mouse']],[/tai nghe/i,['Headphones']],[/loa/i,['Loudspeaker']],[/sạc|cáp/i,['Battery charger']],[/laptop|máy tính xách tay/i,['Laptop']],[/máy tính|casio/i,['Scientific calculator']],[/đèn/i,['Desk lamp','Lamp']],[/nồi cơm/i,['Rice cooker']],[/ấm/i,['Electric kettle']],[/ổ cắm/i,['Power strip']],[/gối/i,['Pillow']],[/chăn|mền/i,['Blanket']],[/sổ|vở/i,['Notebook']],[/bút/i,['Pen']],[/kệ|giá sách/i,['Bookcase']],[/bàn/i,['Desk']],[/ghế/i,['Chair']],[/camera|máy ảnh/i,['Camera']],[/điện thoại/i,['Smartphone']],[/kính/i,['Glasses']],[/đồng hồ/i,['Watch']]];
-function guessT(name,cat){for(const [re,t] of VI2W)if(re.test(name))return t.concat(CATW[cat]||[]);return CATW[cat]||['Household goods']}
-const qOf=it=>it.q||guessT(it.name,it.cat)[0];
-
-/* --- Nguồn 1: kho ảnh stock (Pexels / Unsplash / Pixabay / Openverse) --- */
-const stkCache={};
-function stockSearch(q){
-  if(stkCache[q])return stkCache[q];
-  stkCache[q]=(async()=>{
-    const ck='swapstk2:'+IMG_KEYS.pexels.slice(0,3)+IMG_KEYS.unsplash.slice(0,3)+IMG_KEYS.pixabay.slice(0,3)+':'+q;
-    try{const c=localStorage.getItem(ck);if(c)return JSON.parse(c)}catch(e){}
-    const E=encodeURIComponent(q),sources=[];
-    if(IMG_KEYS.pexels)sources.push(async()=>{
-      const r=await fetch(`https://api.pexels.com/v1/search?query=${E}&per_page=12&orientation=portrait`,{headers:{Authorization:IMG_KEYS.pexels}});
-      if(!r.ok)throw new Error('pexels '+r.status);return (await r.json()).photos.map(p=>p.src.large)});
-    if(IMG_KEYS.unsplash)sources.push(async()=>{
-      const r=await fetch(`https://api.unsplash.com/search/photos?query=${E}&per_page=12&orientation=portrait&client_id=${IMG_KEYS.unsplash}`);
-      if(!r.ok)throw new Error('unsplash '+r.status);return (await r.json()).results.map(p=>p.urls.regular)});
-    if(IMG_KEYS.pixabay)sources.push(async()=>{
-      const r=await fetch(`https://pixabay.com/api/?key=${IMG_KEYS.pixabay}&q=${E}&image_type=photo&orientation=vertical&safesearch=true&per_page=12`);
-      if(!r.ok)throw new Error('pixabay '+r.status);return (await r.json()).hits.map(p=>p.webformatURL)});
-    sources.push(async()=>{
-      const r=await fetch(`https://api.openverse.org/v1/images/?q=${E}&page_size=12&category=photograph`);
-      if(!r.ok)throw new Error('openverse '+r.status);return (await r.json()).results.map(p=>p.thumbnail||p.url)});
-    for(const s of sources){
-      try{const list=(await s()).filter(Boolean);if(list.length){try{localStorage.setItem(ck,JSON.stringify(list))}catch(e){}return list}}
-      catch(e){console.warn('Nguồn ảnh lỗi:',e.message)}
-    }
-    return [];
-  })();
-  return stkCache[q];
-}
-
-/* --- Nguồn 2: danh mục Wikimedia Commons (chỉ chứa ảnh đúng loại đồ vật) --- */
-const catCache={};
-function commonsCat(cat){
-  if(catCache[cat])return catCache[cat];
-  catCache[cat]=(async()=>{
-    const ck='swapcat2:'+cat;
-    try{const c=localStorage.getItem(ck);if(c)return JSON.parse(c)}catch(e){}
-    let list=[];
-    try{
-      const u=`https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=categorymembers&gcmtitle=${encodeURIComponent('Category:'+cat)}&gcmtype=file&gcmlimit=40&prop=imageinfo&iiprop=url|size|mime&iiurlwidth=700`;
-      const r=await fetch(u);if(!r.ok)throw new Error(r.status);
-      const d=await r.json();
-      list=Object.values((d.query&&d.query.pages)||{}).filter(p=>{const i=p.imageinfo&&p.imageinfo[0];return i&&i.mime==='image/jpeg'&&i.width>=500&&i.height>=400}).map(p=>p.imageinfo[0].thumburl);
-    }catch(e){console.warn('Commons lỗi cho "'+cat+'":',e)}
-    if(list.length){try{localStorage.setItem(ck,JSON.stringify(list))}catch(e){}}
-    return list;
-  })();
-  return catCache[cat];
-}
-
-/* --- Nguồn 3: ảnh đại diện bài Wikipedia --- */
+/* ================= ẢNH ĐÚNG NỘI DUNG =================
+   Mỗi món đồ gắn với TÊN BÀI WIKIPEDIA CHÍNH XÁC mô tả đúng vật đó (trường t).
+   Web gọi Wikipedia lấy ảnh đại diện của bài -> ảnh luôn đúng vật thể.
+   Thử lần lượt các tên trong danh sách cho đến khi có ảnh.
+   Muốn đổi ảnh một món: sửa tên bài trong danh sách t của món đó.            */
 const WIKI='https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=700&titles=';
 const wkCache={};
 function wikiThumb(title){
   if(wkCache[title])return wkCache[title];
   wkCache[title]=(async()=>{
-    const ck='swapwk5:'+title;
+    const ck='swapwk4:'+title;
     try{const c=localStorage.getItem(ck);if(c)return c}catch(e){}
     try{
-      const r=await fetch(WIKI+encodeURIComponent(title));if(!r.ok)throw new Error(r.status);
+      const r=await fetch(WIKI+encodeURIComponent(title));
+      if(!r.ok)throw new Error(r.status);
       const d=await r.json();
       const p=Object.values((d.query&&d.query.pages)||{})[0];
       const u=p&&p.thumbnail&&p.thumbnail.source;
@@ -205,29 +143,14 @@ function wikiThumb(title){
   return wkCache[title];
 }
 async function firstImg(titles){for(const t of titles){const u=await wikiThumb(t);if(u)return u}return ''}
-
 function setImg(it,url){it.img=[url];it.loaded=true;document.querySelectorAll(`img[data-id="${it.id}"]`).forEach(e=>{e.dataset.fb='';e.src=url})}
 let heroImg='';
 function applyHero(){const e=$('#heroR');if(e&&heroImg)e.style.backgroundImage=`linear-gradient(rgba(107,112,92,.45),rgba(107,112,92,.45)),url(${heroImg})`}
-
-/* Thứ tự ưu tiên: ảnh ghim -> stock -> Commons -> Wikipedia -> ảnh mẫu */
 async function loadImages(){
-  const todo=items.filter(i=>!i.loaded),used={};
-  await Promise.all(todo.map(async it=>{
-    if(it.pin){setImg(it,it.pin);return}
-    const q=qOf(it),list=await stockSearch(q);
-    if(list.length){const n=used[q]=(used[q]??-1)+1;setImg(it,list[((it.pick||0)+n)%list.length]);return}
-    if(it.c)for(const c of it.c){const l=await commonsCat(c);if(l.length){setImg(it,l[(it.pick||0)%l.length]);return}}
-    const t=(it.t&&it.t.length)?it.t:guessT(it.name,it.cat);
-    const u=await firstImg(t);if(u)setImg(it,u);
-  }));
-  if(!heroImg){
-    const h=await stockSearch('japanese garden minimal');
-    heroImg=h.length?h[0]:await firstImg(['Japanese garden','Zen garden']);
-    applyHero();
-  }
+  const todo=items.filter(i=>i.t&&!i.loaded);
+  await Promise.all(todo.map(async it=>{const u=await firstImg(it.t);if(u)setImg(it,u)}));
+  if(!heroImg){heroImg=await firstImg(['Japanese garden','Zen garden']);applyHero()}
 }
-/* Ảnh nào tải lỗi thì quay về ảnh mẫu, không bao giờ để trống */
 document.addEventListener('error',e=>{
   const t=e.target;
   if(!t||t.tagName!=='IMG'||!t.dataset.id||t.dataset.fb)return;
@@ -236,28 +159,27 @@ document.addEventListener('error',e=>{
   it.img=[ph(it.name,it.id)];t.src=it.img[0];
 },true);
 
-/* ---------- Dữ liệu ----------
-   [tên, danh mục, tình trạng, chủ, trường, vị trí, muốn đổi, q (từ khóa ảnh), c (danh mục Commons), t (bài Wikipedia)] */
+/* Đồ đăng mới (không tải ảnh): tên tiếng Việt -> tên bài Wikipedia */
+const CATW={'Sách vở/Giáo trình':['Textbook'],'Đồ điện tử':['Consumer electronics'],'Quần áo/Phụ kiện':['Clothing'],'Đồ dùng KTX':['Dormitory'],'Khác':['Household goods']};
+const VI2W=[[/giáo trình|sách giáo khoa/i,['Textbook']],[/truyện|tiểu thuyết/i,['Novel']],[/sách/i,['Book']],[/quạt/i,['Fan (machine)']],[/áo khoác/i,['Jacket']],[/áo len|len/i,['Sweater']],[/áo sơ mi/i,['Dress shirt']],[/áo thun|áo phông/i,['T-shirt']],[/áo/i,['Shirt']],[/quần jean|quần bò/i,['Jeans']],[/quần/i,['Trousers']],[/váy/i,['Dress']],[/giày/i,['Shoe']],[/dép/i,['Sandal']],[/balo|ba lô/i,['Backpack']],[/túi/i,['Tote bag','Handbag']],[/bàn phím/i,['Computer keyboard']],[/chuột/i,['Computer mouse']],[/tai nghe/i,['Headphones']],[/loa/i,['Loudspeaker']],[/sạc|cáp/i,['Battery charger']],[/laptop|máy tính xách tay/i,['Laptop']],[/máy tính|casio/i,['Scientific calculator','Calculator']],[/đèn/i,['Desk lamp','Lamp']],[/nồi cơm/i,['Rice cooker']],[/ấm/i,['Electric kettle']],[/ổ cắm/i,['Power strip']],[/gối/i,['Pillow']],[/chăn|mền/i,['Blanket']],[/sổ|vở/i,['Notebook']],[/bút/i,['Pen']],[/kệ|giá sách/i,['Bookcase']],[/bàn/i,['Desk']],[/ghế/i,['Chair']],[/camera|máy ảnh/i,['Camera']],[/điện thoại/i,['Smartphone']],[/kính/i,['Glasses']],[/đồng hồ/i,['Watch']]];
+function guessT(name,cat){for(const [re,t] of VI2W)if(re.test(name))return t.concat(CATW[cat]||[]);return CATW[cat]||['Household goods']}
+
+/* ---------- Dữ liệu ---------- */
 let items=[
-['Giải tích 1 — Nguyễn Đình Trí','Sách vở/Giáo trình','Mới 90%','Minh Anh','ĐH Bách Khoa','KTX Khu A','Quạt mini, đèn bàn','calculus textbook',[],['Calculus','Textbook']],
-['Quạt tích điện mini','Đồ dùng KTX','Mới 95%','Hải Đăng','ĐH Quốc Gia','Thư viện trung tâm','Sách tiếng Anh','portable handheld fan',['Table fans','Mini fans','Electric fans'],[]],
-['Áo khoác denim UNIQLO size M','Quần áo/Phụ kiện','Mới 90%','Thu Hà','ĐH Ngoại Thương','Cổng trường','Áo len','denim jacket',[],['Denim jacket','Denim']],
-['Bàn phím cơ 87 phím','Đồ điện tử','Mới 85%','Quốc Bảo','ĐH FPT','Cơ sở 1','Chuột không dây','mechanical keyboard',[],['Mechanical keyboard','Computer keyboard']],
-['Đèn bàn LED kẹp','Đồ dùng KTX','Mới 95%','Lan Phương','ĐH Kinh Tế Quốc Dân','KTX Khu B','Giáo trình Kinh tế vi mô','desk lamp',['Desk lamps','Clamp lamps'],[]],
-['Kinh tế vi mô — Mankiw','Sách vở/Giáo trình','Mới 80%','Gia Huy','ĐH Kinh Tế Quốc Dân','Thư viện','Đồ dùng KTX','economics textbook',[],['Microeconomics','Textbook']],
-['Tai nghe chụp tai','Đồ điện tử','Mới 90%','Khánh Linh','ĐH Sư Phạm','Cổng trường','Sách văn học','over-ear headphones',[],['Headphones']],
-['Túi tote vải canvas','Quần áo/Phụ kiện','Mới 95%','Bảo Châu','ĐH Bách Khoa','Cơ sở 2','Sổ tay','canvas tote bag',[],['Tote bag','Handbag']],
-['Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Tuấn Kiệt','ĐH Quốc Gia','KTX Khu A','Ấm siêu tốc','rice cooker',[],['Rice cooker']],
-['Máy tính Casio fx-580','Đồ điện tử','Mới 90%','Mai Chi','ĐH Ngoại Thương','Thư viện','Sách ngoại ngữ','scientific calculator',[],['Scientific calculator','Calculator']]
-].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cond:a[2],owner:a[3],school:a[4],loc:a[5],want:a[6],q:a[7],c:a[8],t:a[9],img:[ph(a[0],i)],v:true,mine:false}));
+['Giải tích 1 — Nguyễn Đình Trí','Sách vở/Giáo trình','Mới 90%','Minh Anh','ĐH Bách Khoa','KTX Khu A','Quạt mini, đèn bàn',['Calculus','Textbook']],
+['Quạt tích điện mini','Đồ dùng KTX','Mới 95%','Hải Đăng','ĐH Quốc Gia','Thư viện trung tâm','Sách tiếng Anh',['Fan (machine)','Hand fan']],
+['Áo khoác denim UNIQLO size M','Quần áo/Phụ kiện','Mới 90%','Thu Hà','ĐH Ngoại Thương','Cổng trường','Áo len',['Denim jacket','Jean jacket','Denim']],
+['Bàn phím cơ 87 phím','Đồ điện tử','Mới 85%','Quốc Bảo','ĐH FPT','Cơ sở 1','Chuột không dây',['Mechanical keyboard','Computer keyboard']],
+['Đèn bàn LED kẹp','Đồ dùng KTX','Mới 95%','Lan Phương','ĐH Kinh Tế Quốc Dân','KTX Khu B','Giáo trình Kinh tế vi mô',['Desk lamp','Anglepoise lamp','Lamp']],
+['Kinh tế vi mô — Mankiw','Sách vở/Giáo trình','Mới 80%','Gia Huy','ĐH Kinh Tế Quốc Dân','Thư viện','Đồ dùng KTX',['Microeconomics','Textbook']],
+['Tai nghe chụp tai','Đồ điện tử','Mới 90%','Khánh Linh','ĐH Sư Phạm','Cổng trường','Sách văn học',['Headphones']],
+['Túi tote vải canvas','Quần áo/Phụ kiện','Mới 95%','Bảo Châu','ĐH Bách Khoa','Cơ sở 2','Sổ tay',['Tote bag','Handbag']],
+['Nồi cơm điện mini 0.6L','Đồ dùng KTX','Mới 85%','Tuấn Kiệt','ĐH Quốc Gia','KTX Khu A','Ấm siêu tốc',['Rice cooker']],
+['Máy tính Casio fx-580','Đồ điện tử','Mới 90%','Mai Chi','ĐH Ngoại Thương','Thư viện','Sách ngoại ngữ',['Scientific calculator','Calculator']]
+].map((a,i)=>({id:i+1,name:a[0],cat:a[1],cond:a[2],owner:a[3],school:a[4],loc:a[5],want:a[6],t:a[7],img:[ph(a[0],i)],v:true,mine:false}));
 let me={name:'Bạn',school:'',email:'',status:'none',sid:''};
-let mine=[['Truyện Totto-chan','Sách vở/Giáo trình','Mới 90%','children novel book',['Totto-chan: The Little Girl at the Window','Novel']],['Áo len cổ lọ','Quần áo/Phụ kiện','Mới 95%','turtleneck sweater',['Turtleneck','Sweater']],['Ổ cắm điện đa năng','Đồ dùng KTX','Mới 90%','power strip',['Power strip','Extension cord']]].map((a,i)=>({id:100+i,name:a[0],cat:a[1],cond:a[2],q:a[3],t:a[4],c:[],owner:'Bạn',school:'Của bạn',loc:'KTX Khu A',want:'',img:[ph(a[0],i+3)],mine:true,v:true}));
+let mine=[['Truyện Totto-chan','Sách vở/Giáo trình','Mới 90%',['Totto-chan: The Little Girl at the Window','Novel']],['Áo len cổ lọ','Quần áo/Phụ kiện','Mới 95%',['Turtleneck','Sweater']],['Ổ cắm điện đa năng','Đồ dùng KTX','Mới 90%',['Power strip','Extension cord']]].map((a,i)=>({id:100+i,name:a[0],cat:a[1],cond:a[2],t:a[3],owner:'Bạn',school:'Của bạn',loc:'KTX Khu A',want:'',img:[ph(a[0],i+3)],mine:true,v:true}));
 items=items.concat(mine);
-
-/* Muốn ghim cứng 1 ảnh cho món nào, bỏ comment và sửa dòng tương ứng:
-   byId(5).pin='https://commons.wikimedia.org/wiki/Special:FilePath/Ten_file.jpg?width=700';
-   Muốn lấy ảnh khác trong cùng kết quả: byId(2).pick=1;                                  */
-
 let saved=new Set(),F={school:'',cat:'',q:''},mode='deck',deckI=0,vw='home';
 let offers=[{id:1,target:101,from:'Hải Đăng',school:'ĐH Quốc Gia',give:[2],msg:'Mình muốn đổi cái quạt KTX lấy áo len của bạn nhé!',status:'pending',when:''}];
 let offerSel=new Set(),offerFor=null,place='',stars=0;
@@ -341,7 +263,7 @@ function doneO(id){if(!stars)return toast('Chọn số sao từ 1 đến 5');off
 let upImgs=[];
 function prevImgs(inp){upImgs=[];const fs=[...inp.files].slice(0,5);$('#pv').innerHTML='';fs.forEach(f=>{const r=new FileReader();r.onload=()=>{upImgs.push(r.result);$('#pv').insertAdjacentHTML('beforeend',`<img src="${r.result}" alt="">`)};r.readAsDataURL(f)})}
 function postItem(){const n=$('#u1').value.trim();if(!n)return toast('Nhập tên sản phẩm');const id=Date.now(),cat=$('#u2').value;
- items.unshift({id,name:n,cat,cond:$('#u3').value,desc:$('#u4').value,want:$('#u5').value,loc:$('#u6').value||'Cổng trường',owner:me.name,school:me.school,img:upImgs.length?upImgs:[ph(n,id%6)],t:guessT(n,cat),c:[],loaded:!!upImgs.length,mine:true,v:true});
+ items.unshift({id,name:n,cat,cond:$('#u3').value,desc:$('#u4').value,want:$('#u5').value,loc:$('#u6').value||'Cổng trường',owner:me.name,school:me.school,img:upImgs.length?upImgs:[ph(n,id%6)],t:upImgs.length?null:guessT(n,cat),loaded:!!upImgs.length,mine:true,v:true});
  upImgs=[];toast('Đã đăng bài');go('manage');mTab(1);loadImages()}
 /* search */
 const qi=$('#q');
